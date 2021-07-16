@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// プレイヤーを自動で動かすクラス
@@ -12,7 +10,7 @@ public class AutoMovePlayer : MonoBehaviour
     // プレイヤー
     [SerializeField] GameObject player = default;
     // ヒットチェッカー
-    PlayerHitChecker checker = default;
+    [SerializeField] PlayerHitChecker checker = default;
     // 移動フラグ
     bool moveFlag;
 
@@ -22,7 +20,6 @@ public class AutoMovePlayer : MonoBehaviour
     void Start()
     {
         moveFlag = false;
-        checker = player.GetComponent<PlayerHitChecker>();
     }
 
     /// <summary>
@@ -32,6 +29,7 @@ public class AutoMovePlayer : MonoBehaviour
     {
         if (moveFlag)
         {
+            // TODO:瓦とプレイヤーの移動速度を同期させる 
             player.transform.Translate(moveSpeed);
         }
         else

@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 /// <summary>
 /// 瓦を自動で動かすクラス
@@ -9,19 +8,12 @@ public class AutoMoveTile : MonoBehaviour
 {
     // 移動速度
     [SerializeField] Vector3 moveSpeed = default;
-    // 瓦の親オブジェクト
-    [SerializeField] GameObject tileObject = default;
-    // 普通の瓦画像
-    [SerializeField] GameObject normalTile = default;
-    // 割れた瓦画像
-    [SerializeField] GameObject breakTile = default;
-    // 停止ポジション
-    [SerializeField] float stopPoint = default;
-    // 開始ポジション
-    [SerializeField] float startPoint = default;
+    [SerializeField] TileHitChecker checker = default;
+    // 隠すポイント
+    [SerializeField] float hidePoint = default;
+    // 生成ポイント
+    [SerializeField] float createPoint = default;
 
-    // 当たり判定チェッカー
-    TileHitChecker checker = default;
     // 移動フラグ
     bool moveFlag;
 
@@ -31,7 +23,6 @@ public class AutoMoveTile : MonoBehaviour
     void Start()
     {
         moveFlag = false;
-        checker = tileObject.GetComponent<TileHitChecker>();
     }
 
     /// <summary>
@@ -41,14 +32,14 @@ public class AutoMoveTile : MonoBehaviour
     {
         if (moveFlag)
         {
-            tileObject.transform.Translate(moveSpeed);
+            transform.Translate(moveSpeed);
         }
         else
         {
             moveFlag = checker.AutoMoveFlag;
         }
 
-        if(tileObject.transform.position.y > stopPoint)
+        if(transform.position.y > hidePoint)
         {
             RepositionProcess();
         }
@@ -59,11 +50,9 @@ public class AutoMoveTile : MonoBehaviour
     /// </summary>
     void RepositionProcess()
     {
-        Vector3 position = tileObject.transform.position;
-        position.y = startPoint;
-        tileObject.transform.position = position;
-        normalTile.SetActive(true);
-        breakTile.SetActive(false);
+        Vector3 position = transform.position;
+        position.y = createPoint;
+        transform.position = position;
     }
 
 }

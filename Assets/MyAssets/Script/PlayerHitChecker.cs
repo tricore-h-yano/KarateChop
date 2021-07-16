@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TouchScript.Behaviors;
 using TouchScript.Gestures.TransformGestures;
 
@@ -10,12 +8,12 @@ using TouchScript.Gestures.TransformGestures;
 public class PlayerHitChecker : MonoBehaviour
 {
     // プレイヤー
-    [SerializeField] GameObject playerObject;
+    [SerializeField] GameObject playerObject = default;
 
     // オブジェクト変換クラス
-    Transformer transformer = default;
+    [SerializeField] Transformer transformer = default;
     // ジェスチャークラス
-    ScreenTransformGesture transformGesture = default;
+    [SerializeField] ScreenTransformGesture transformGesture = default;
 
     // 自動移動フラグ
     bool autoMoveFlag;
@@ -26,8 +24,6 @@ public class PlayerHitChecker : MonoBehaviour
     /// </summary>
     void Start()
     {
-        transformer = playerObject.GetComponent<Transformer>();
-        transformGesture = playerObject.GetComponent<ScreenTransformGesture>();
         autoMoveFlag = false;
     }
 
