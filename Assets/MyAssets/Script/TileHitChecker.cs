@@ -9,22 +9,36 @@ using TouchScript.Gestures.TransformGestures;
 /// </summary>
 public class TileHitChecker : MonoBehaviour
 {
-    // 割れていない瓦
-    [SerializeField] GameObject tileObject = default;
+    // 瓦
+    [SerializeField] GameObject normalTile = default;
     // 割れている瓦
-    [SerializeField] GameObject breakTileObject = default;
+    [SerializeField] GameObject breakTile = default;
+
+    // 自動移動フラグ
+    bool autoMoveFlag;
+    public bool AutoMoveFlag { get { return autoMoveFlag; } }
+
+    // Tag判別用string
+    // Player
+    const string PlayerTag = "Player";
+    // BreakPoint
+    const string BreakPointTag = "BreakPoint";
 
     /// <summary>
-    /// コライダーに触れた時
+    /// トリガーに触れた時
     /// </summary>
-    /// <param name="collision">触れたオブジェクトのコライダー</param>
-    void OnCollisionEnter(Collision collision)
+    /// <param name="other">触れたオブジェクトのコライダー</param>
+    void OnTriggerEnter(Collider other)
     {
-        collision.gameObject.GetComponent<ScreenTransformGesture>().enabled = false;
-        collision.gameObject.GetComponent<Transformer>().enabled = false;
-        collision.rigidbody.isKinematic = true;
-        tileObject.SetActive(false);
-        breakTileObject.SetActive(true);
-    }
+        if (other.gameObject.CompareTag(PlayerTag))
+        {
+            autoMoveFlag = true;
+        }
 
+        if(other.gameObject.CompareTag(BreakPointTag))
+        {
+            normalTile.SetActive(false);
+            breakTile.SetActive(true);
+        }
+    }
 }
