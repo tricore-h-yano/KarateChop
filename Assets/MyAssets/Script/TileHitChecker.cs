@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using TouchScript.Behaviors;
-using TouchScript.Gestures.TransformGestures;
 
 /// <summary>
 /// 瓦の当たり判定をチェックするクラス

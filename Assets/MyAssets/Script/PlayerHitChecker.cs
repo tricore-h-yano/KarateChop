@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using TouchScript.Behaviors;
-using TouchScript.Gestures.TransformGestures;
 
 /// <summary>
 /// プレイヤーの当たり判定をチェックするクラス
@@ -9,11 +7,6 @@ public class PlayerHitChecker : MonoBehaviour
 {
     // プレイヤー
     [SerializeField] GameObject playerObject = default;
-
-    // オブジェクト変換クラス
-    [SerializeField] Transformer transformer = default;
-    // ジェスチャークラス
-    [SerializeField] ScreenTransformGesture transformGesture = default;
 
     // 自動移動フラグ
     bool autoMoveFlag;
@@ -35,8 +28,6 @@ public class PlayerHitChecker : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Tile"))
         {
-            transformer.enabled = false;
-            transformGesture.enabled = false;
             autoMoveFlag = true;
         }
     }
