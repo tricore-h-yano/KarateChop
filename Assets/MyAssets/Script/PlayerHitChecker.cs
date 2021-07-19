@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
-
+using TouchScript.Gestures.TransformGestures;
+using TouchScript.Behaviors;
 /// <summary>
 /// プレイヤーの当たり判定をチェックするクラス
 /// </summary>
 public class PlayerHitChecker : MonoBehaviour
 {
-    // プレイヤー
-    [SerializeField] GameObject playerObject = default;
+    // ジェスチャー
+    [SerializeField] ScreenTransformGesture transformGesture = default;
+    // トランスフォーマー
+    [SerializeField] Transformer transformer = default;
 
     // 自動移動フラグ
     bool autoMoveFlag;
@@ -26,9 +29,11 @@ public class PlayerHitChecker : MonoBehaviour
     /// <param name="other">触れたオブジェクトのコライダー</param>
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Tile"))
+        if(other.gameObject.CompareTag("BreakPoint"))
         {
             autoMoveFlag = true;
+            transformer.enabled = false;
+            transformGesture.enabled = false;
         }
     }
 }

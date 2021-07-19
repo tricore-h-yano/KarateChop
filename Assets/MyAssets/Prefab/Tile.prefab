@@ -257,7 +257,6 @@ GameObject:
   - component: {fileID: 6418012879465181572}
   - component: {fileID: 1819120797923751051}
   - component: {fileID: 6418012879465181573}
-  - component: {fileID: 6418012879465181571}
   m_Layer: 5
   m_Name: Tile
   m_TagString: Tile
@@ -297,7 +296,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 700, y: 100, z: 1}
+  m_Size: {x: 700, y: 50, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1819120797923751051
 Rigidbody:
@@ -329,21 +328,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalTile: {fileID: 6418012879199899609}
   breakTile: {fileID: 6418012879042396153}
---- !u!114 &6418012879465181571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6418012879465181569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac6a57df020153d46bab819b38dad81d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: {x: 0, y: 10, z: 0}
-  tileObject: {fileID: 6418012879465181569}
-  normalTile: {fileID: 6418012879199899609}
-  breakTile: {fileID: 6418012879042396153}
-  stopPoint: 2500
-  startPoint: -2500
