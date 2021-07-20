@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 205103050633755765}
   - component: {fileID: 8942228439651015066}
   - component: {fileID: 7590700787775204592}
+  - component: {fileID: 1608839588958644096}
   m_Layer: 5
   m_Name: Player
   m_TagString: Player
@@ -83,9 +84,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb76a06099904b4490c089409390178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: {x: 0, y: 10, z: 0}
   player: {fileID: 205103050633755761}
   checker: {fileID: 205103050633755765}
+  playerController: {fileID: 1608839588958644096}
+  maxSpeed: 50
 --- !u!114 &205103050633755765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9782ae049ead00047810a043f3411df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 205103050633755761}
   transformGesture: {fileID: 7590700787775204592}
   transformer: {fileID: 8942228439651015066}
 --- !u!114 &8942228439651015066
@@ -160,6 +161,21 @@ MonoBehaviour:
   type: 7
   screenTransformThreshold: 0.1
   minScreenPointsDistance: 0.5
+--- !u!114 &1608839588958644096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205103050633755761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9474d50c55f596441b3cf3112f47fe54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenTransformGesture: {fileID: 7590700787775204592}
+  breakPoint: {fileID: 0}
+  pointerGetTime: 30
 --- !u!1 &205103051040599387
 GameObject:
   m_ObjectHideFlags: 0

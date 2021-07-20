@@ -1,34 +1,54 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+/// <summary>
+/// 瓦グループの自動移動処理を行うクラス
+/// </summary>
 public class AutoMoveTileGroup : MonoBehaviour
 {
     // プレイヤーヒットチェッカー
     [SerializeField] PlayerHitChecker playerHitChecker = default;
-    // 移動速度
-    /*[SerializeField] */
-    float moveSpeed = default;
-    // 隠すポイント
-    [SerializeField] RectTransform hidePoint = default;
-    // 生成ポイント
-    [SerializeField] RectTransform createPoint = default;
-
-    [SerializeField]
-    PlayerController playerController = default;
-
+    // プレイヤーコントローラー
+    [SerializeField] PlayerController playerController = default;
+    // 瓦オブジェクトのリスト
     [SerializeField] List<GameObject> tileObjects = default;
+    // 割れている瓦オブジェクトのリスト
     [SerializeField] List<GameObject> breakTileObjects = default;
+    // 最大速度
+    [SerializeField] float maxSpeed = default;
 
     // 移動フラグ
     bool moveFlag;
+
+    // 実際に作用する移動速度
+    float moveSpeed;
+    // 仮の移動速度
+    float preMoveSpeed;
+
+    // ブレイクポイントのTag
+    const string HidePointTag = "HidePoint";
+
+    // アクション
+    Action<GameObject> repositionAction;
+
+    /// <summary>
+    /// Actionに関数を登録する処理
+    /// </summary>
+    /// <param name="action">セットするAction</param>
+    public void SetAction(Action<GameObject> action)
+    {
+        repositionAction = action;
+    }
 
     /// <summary>
     /// 初期化処理
     /// </summary>
     void Start()
     {
-        
+        moveFlag = false;
+        moveSpeed = 0.0f;
+        preMoveSpeed = 0.0f;
     }
 
     /// <summary>
@@ -38,28 +58,42 @@ public class AutoMoveTileGroup : MonoBehaviour
     {
         if (moveFlag)
         {
+            if(preMoveSpeed >= maxSpeed)
+            {
+                moveSpeed = maxSpeed;
+            }
+            else
+            {
+                moveSpeed = preMoveSpeed;
+            }
             transform.Translate(0, moveSpeed, 0);
-            Debug.Log(moveSpeed);
-            moveSpeed *= 0.99f;
+            preMoveSpeed *= 0.99f;
         }
         else
         {
             moveFlag = playerHitChecker.AutoMoveFlag;
-            moveSpeed = playerController.Speed;
-        }
-
-        if (transform.position.y > hidePoint.position.y)
-        {
-            RepositionProcess();
+            preMoveSpeed = playerController.Speed;
         }
     }
 
     /// <summary>
-    /// 停止位置に到達したときの処理
+    /// トリガーに触れた時
     /// </summary>
-    void RepositionProcess()
+    /// <param name="other">触れたオブジェクトのコライダー </param>
+    void OnTriggerEnter(Collider other)
     {
-        foreach(var tile in tileObjects)
+        if(other.gameObject.CompareTag(HidePointTag))
+        {
+            ResetProcess();
+        }
+    }
+
+    /// <summary>
+    /// 停止位置に来た時のリセット処理
+    /// </summary>
+    void ResetProcess()
+    {
+        foreach (var tile in tileObjects)
         {
             tile.SetActive(true);
         }
@@ -69,8 +103,6 @@ public class AutoMoveTileGroup : MonoBehaviour
             tile.SetActive(false);
         }
 
-        Vector3 position = transform.position;
-        position.y = createPoint.position.y;
-        transform.position = position;
+        repositionAction(gameObject);
     }
 }

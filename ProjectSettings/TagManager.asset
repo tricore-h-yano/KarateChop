@@ -6,6 +6,8 @@ TagManager:
   tags:
   - BreakPoint
   - Tile
+  - HidePoint
+  - TileGroup
   layers:
   - Default
   - TransparentFX

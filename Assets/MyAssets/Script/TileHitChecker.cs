@@ -10,14 +10,7 @@ public class TileHitChecker : MonoBehaviour
     // 割れている瓦
     [SerializeField] GameObject breakTile = default;
 
-    // 自動移動フラグ
-    bool autoMoveFlag;
-    public bool AutoMoveFlag { get { return autoMoveFlag; } }
-
-    // Tag判別用string
-    // Player
-    const string PlayerTag = "Player";
-    // BreakPoint
+    // BreakPointのTag
     const string BreakPointTag = "BreakPoint";
 
     /// <summary>
@@ -26,12 +19,7 @@ public class TileHitChecker : MonoBehaviour
     /// <param name="other">触れたオブジェクトのコライダー</param>
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(PlayerTag))
-        {
-            autoMoveFlag = true;
-        }
-
-        if(other.gameObject.CompareTag(BreakPointTag))
+        if (other.gameObject.CompareTag(BreakPointTag))
         {
             normalTile.SetActive(false);
             breakTile.SetActive(true);

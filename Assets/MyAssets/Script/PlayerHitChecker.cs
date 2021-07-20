@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TouchScript.Gestures.TransformGestures;
 using TouchScript.Behaviors;
+
 /// <summary>
 /// プレイヤーの当たり判定をチェックするクラス
 /// </summary>
@@ -14,6 +15,9 @@ public class PlayerHitChecker : MonoBehaviour
     // 自動移動フラグ
     bool autoMoveFlag;
     public bool AutoMoveFlag { get { return autoMoveFlag; } }
+
+    // ブレイクポイントのTag
+    const string BreakPointTag = "BreakPoint";
 
     /// <summary>
     /// 初期化処理
@@ -29,7 +33,7 @@ public class PlayerHitChecker : MonoBehaviour
     /// <param name="other">触れたオブジェクトのコライダー</param>
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("BreakPoint"))
+        if(other.gameObject.CompareTag(BreakPointTag))
         {
             autoMoveFlag = true;
             transformer.enabled = false;

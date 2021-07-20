@@ -1,14 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TouchScript.Gestures.TransformGestures;
-using TouchScript.Behaviors;
 
-
+/// <summary>
+/// プレイヤーの位置情報を取得し速度を計算するクラス
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     // ジェスチャークラス
     [SerializeField] ScreenTransformGesture screenTransformGesture = default;
+    // ブレイクポイント
+    [SerializeField] GameObject breakPoint = default;
+    // ポインターの場所を取得する時間
+    [SerializeField] float pointerGetTime = default;
 
     // ドラッグ開始位置
     Vector2 startPosition;
@@ -28,6 +31,8 @@ public class PlayerController : MonoBehaviour
     {
         startPosition = new Vector2(0, 0);
         endPosition = new Vector2(0, 0);
+        speed = 0.0f;
+        breakPoint.SetActive(true);
     }
 
     /// <summary>
@@ -44,10 +49,8 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {
         // Transform Gestureのdelegateに登録
-        screenTransformGesture.TransformStarted += TransformStartedHandle; // 変形開始
-        screenTransformGesture.StateChanged += StateChangedHandle; //　状態変化
-        screenTransformGesture.TransformCompleted += TransformCompletedHandle; // 変形終了
-        screenTransformGesture.Cancelled += CancelledHandle; // キャンセル
+        screenTransformGesture.StateChanged += StateChangedHandle;
+        screenTransformGesture.Cancelled += CancelledHandle;
     }
 
     /// <summary>
@@ -72,51 +75,29 @@ public class PlayerController : MonoBehaviour
     void UnsubscribeEvent()
     {
         // 登録を解除
-        screenTransformGesture.TransformStarted -= TransformStartedHandle;
         screenTransformGesture.StateChanged -= StateChangedHandle;
-        screenTransformGesture.TransformCompleted -= TransformCompletedHandle;
         screenTransformGesture.Cancelled -= CancelledHandle;
-    }
-
-    /// <summary>
-    /// 変形開始時の処理
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    void TransformStartedHandle(object sender, System.EventArgs e)
-    {
     }
 
     /// <summary>
     /// 変形中の処理
     /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
+    /// <param name="sender">送信者となるオブジェクト</param>
+    /// <param name="e">イベント</param>
     void StateChangedHandle(object sender, System.EventArgs e)
     {
-        if(time >= 30)
+        if(time >= pointerGetTime)
         {
             startPosition = screenTransformGesture.ScreenPosition;
-            time = 0;
+            time = 0.0f;
         }
-
-    }
-
-    /// <summary>
-    /// 変形終了時の処理
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    void TransformCompletedHandle(object sender, System.EventArgs e)
-    {
-
     }
 
     /// <summary>
     /// キャンセルされた時の処理
     /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
+    /// <param name="sender">送信者となるオブジェクト</param>
+    /// <param name="e">イベント</param>
     void CancelledHandle(object sender, System.EventArgs e)
     {
         endPosition = screenTransformGesture.ScreenPosition;
@@ -129,16 +110,12 @@ public class PlayerController : MonoBehaviour
     void SpeedCalculation()
     {
         float swipeLength = endPosition.y - startPosition.y;
-
-        //speed = swipeLength * -1;
         speed = Mathf.Abs(swipeLength);
-        Debug.Log(speed);
+        speed *= 10.0f;
 
-        if(speed <= 5.0f)
+        if(speed <= 1.0f)
         {
-            speed = 5.0f;
+            speed = 1.0f;
         }
     }
-
-
 }
