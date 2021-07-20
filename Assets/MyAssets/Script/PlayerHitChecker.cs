@@ -13,8 +13,8 @@ public class PlayerHitChecker : MonoBehaviour
     [SerializeField] Transformer transformer = default;
 
     // 自動移動フラグ
-    bool autoMoveFlag;
-    public bool AutoMoveFlag { get { return autoMoveFlag; } }
+    bool isAutoMove;
+    public bool IsAutoMove { get { return isAutoMove; } }
 
     // ブレイクポイントのTag
     const string BreakPointTag = "BreakPoint";
@@ -24,7 +24,7 @@ public class PlayerHitChecker : MonoBehaviour
     /// </summary>
     void Start()
     {
-        autoMoveFlag = false;
+        isAutoMove = false;
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ public class PlayerHitChecker : MonoBehaviour
     {
         if(other.gameObject.CompareTag(BreakPointTag))
         {
-            autoMoveFlag = true;
+            isAutoMove = true;
             transformer.enabled = false;
             transformGesture.enabled = false;
         }

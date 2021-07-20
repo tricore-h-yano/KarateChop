@@ -5,7 +5,7 @@ using System;
 /// <summary>
 /// 瓦グループの自動移動処理を行うクラス
 /// </summary>
-public class AutoMoveTileGroup : MonoBehaviour
+public class AutoTileGroupMover : MonoBehaviour
 {
     // プレイヤーヒットチェッカー
     [SerializeField] PlayerHitChecker playerHitChecker = default;
@@ -19,12 +19,10 @@ public class AutoMoveTileGroup : MonoBehaviour
     [SerializeField] float maxSpeed = default;
 
     // 移動フラグ
-    bool moveFlag;
+    bool isMove;
 
-    // 実際に作用する移動速度
-    float moveSpeed;
-    // 仮の移動速度
-    float preMoveSpeed;
+    // 受け取った移動速度保存
+    float receivedMoveSpeed;
 
     // ブレイクポイントのTag
     const string HidePointTag = "HidePoint";
@@ -46,9 +44,8 @@ public class AutoMoveTileGroup : MonoBehaviour
     /// </summary>
     void Start()
     {
-        moveFlag = false;
-        moveSpeed = 0.0f;
-        preMoveSpeed = 0.0f;
+        isMove = false;
+        receivedMoveSpeed = 0.0f;
     }
 
     /// <summary>
@@ -56,23 +53,25 @@ public class AutoMoveTileGroup : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (moveFlag)
+        if (isMove)
         {
-            if(preMoveSpeed >= maxSpeed)
+            float moveSpeed = 0.0f;
+
+            if(receivedMoveSpeed >= maxSpeed)
             {
                 moveSpeed = maxSpeed;
             }
             else
             {
-                moveSpeed = preMoveSpeed;
+                moveSpeed = receivedMoveSpeed;
             }
             transform.Translate(0, moveSpeed, 0);
-            preMoveSpeed *= 0.99f;
+            receivedMoveSpeed *= 0.99f;
         }
         else
         {
-            moveFlag = playerHitChecker.AutoMoveFlag;
-            preMoveSpeed = playerController.Speed;
+            isMove = playerHitChecker.IsAutoMove;
+            receivedMoveSpeed = playerController.Speed;
         }
     }
 

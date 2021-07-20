@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     // ジェスチャークラス
     [SerializeField] ScreenTransformGesture screenTransformGesture = default;
-    // ブレイクポイント
-    [SerializeField] GameObject breakPoint = default;
+    // 瓦を割るためのコライダー
+    [SerializeField] GameObject tileBreakCollider = default;
     // ポインターの場所を取得する時間
     [SerializeField] float pointerGetTime = default;
 
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         startPosition = new Vector2(0, 0);
         endPosition = new Vector2(0, 0);
         speed = 0.0f;
-        breakPoint.SetActive(true);
+        tileBreakCollider.SetActive(true);
     }
 
     /// <summary>
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        ++time;
+
     }
 
     /// <summary>
@@ -80,13 +80,15 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// 変形中の処理
+    /// ドラッグ中の処理
     /// </summary>
     /// <param name="sender">送信者となるオブジェクト</param>
     /// <param name="e">イベント</param>
     void StateChangedHandle(object sender, System.EventArgs e)
     {
-        if(time >= pointerGetTime)
+        ++time;
+
+        if (time >= pointerGetTime)
         {
             startPosition = screenTransformGesture.ScreenPosition;
             time = 0.0f;
@@ -94,7 +96,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// キャンセルされた時の処理
+    /// 瓦に当たりドラッグが終了したときの処理
     /// </summary>
     /// <param name="sender">送信者となるオブジェクト</param>
     /// <param name="e">イベント</param>

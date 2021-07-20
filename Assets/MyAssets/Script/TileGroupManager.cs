@@ -7,7 +7,7 @@ using UnityEngine;
 public class TileGroupManager : MonoBehaviour
 {
     // 瓦グループオブジェクトのリスト
-    [SerializeField] List<AutoMoveTileGroup> tileGroupObjects = default;
+    [SerializeField] List<AutoTileGroupMover> tileGroupObjects = default;
     // 一番最後尾の瓦グループオブジェクト
     [SerializeField] GameObject lastGroup = default;
     // ポジションリセット時の間隔
@@ -15,6 +15,7 @@ public class TileGroupManager : MonoBehaviour
 
     /// <summary>
     /// 初期化処理
+    /// 瓦グループオブジェクトリスト内の瓦グループにそれぞれリセット時のポジション変更処理をセットする
     /// </summary>
     void Start()
     {

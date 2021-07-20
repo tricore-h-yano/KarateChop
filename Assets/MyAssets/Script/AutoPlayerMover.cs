@@ -3,7 +3,7 @@
 /// <summary>
 /// プレイヤーを自動で動かすクラス
 /// </summary>
-public class AutoMovePlayer : MonoBehaviour
+public class AutoPlayerMover : MonoBehaviour
 {
     // プレイヤー
     [SerializeField] GameObject player = default;
@@ -15,7 +15,7 @@ public class AutoMovePlayer : MonoBehaviour
     [SerializeField] float maxSpeed = default;
 
     // 移動フラグ
-    bool moveFlag;
+    bool isMove;
     // 実際に作用する移動速度
     float moveSpeed;
     // 仮の移動速度
@@ -26,7 +26,7 @@ public class AutoMovePlayer : MonoBehaviour
     /// </summary>
     void Start()
     {
-        moveFlag = false;
+        isMove = false;
     }
 
     /// <summary>
@@ -34,7 +34,7 @@ public class AutoMovePlayer : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (moveFlag)
+        if (isMove)
         {
             if (preMoveSpeed >= maxSpeed)
             {
@@ -49,7 +49,7 @@ public class AutoMovePlayer : MonoBehaviour
         }
         else
         {
-            moveFlag = checker.AutoMoveFlag;
+            isMove = checker.IsAutoMove;
             preMoveSpeed = playerController.Speed;
         }
     }

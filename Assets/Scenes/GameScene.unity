@@ -1136,6 +1136,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -900
       objectReference: {fileID: 0}
+    - target: {fileID: 6410662605483332500, guid: 786dc576500eba64cbb280c8718adce5,
+        type: 3}
+      propertyPath: pointerGetTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8452266597867446667, guid: 786dc576500eba64cbb280c8718adce5,
         type: 3}
       propertyPath: m_AnchorMax.y
