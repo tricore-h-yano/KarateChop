@@ -18,7 +18,7 @@ public class TileTypeSelector : MonoBehaviour
     /// <summary>
     /// buttonが押された際の処理
     /// </summary>
-    public void OnClick()
+    public void SelectColor()
     {
         float random = Random.value;
 
@@ -30,7 +30,6 @@ public class TileTypeSelector : MonoBehaviour
         {
             NormalTileActive();
         }
-
     }
 
     /// <summary>
@@ -50,5 +49,4 @@ public class TileTypeSelector : MonoBehaviour
         gameObjectRoot.SetActive(true);
         goldTileObjectRoot.SetActive(true);
     }
-
 }
