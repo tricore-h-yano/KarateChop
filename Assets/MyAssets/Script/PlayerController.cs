@@ -36,14 +36,6 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// 更新処理
-    /// </summary>
-    void Update()
-    {
-
-    }
-
-    /// <summary>
     /// 有効化されたときの処理
     /// </summary>
     void OnEnable()
@@ -51,6 +43,7 @@ public class PlayerController : MonoBehaviour
         // Transform Gestureのdelegateに登録
         screenTransformGesture.StateChanged += StateChangedHandle;
         screenTransformGesture.Cancelled += CancelledHandle;
+        time = 0.0f;
     }
 
     /// <summary>
@@ -104,6 +97,7 @@ public class PlayerController : MonoBehaviour
     {
         endPosition = screenTransformGesture.ScreenPosition;
         SpeedCalculation();
+        time = 0.0f;
     }
 
     /// <summary>
