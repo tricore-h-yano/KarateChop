@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 割れた瓦の枚数表示テキストを書き換えるクラス
 /// </summary>
-public class BreakTileTextCreater : MonoBehaviour
+public class BreakTileTextRewriter : MonoBehaviour
 {
     // 割れた瓦を数えるクラス
     [SerializeField] BreakTileCounter breakTileCounter = default;
