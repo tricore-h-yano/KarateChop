@@ -276,6 +276,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 547292350012101799, guid: 786dc576500eba64cbb280c8718adce5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 547292350012101799, guid: 786dc576500eba64cbb280c8718adce5,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 751918552310380852, guid: 786dc576500eba64cbb280c8718adce5,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1186,6 +1196,11 @@ PrefabInstance:
       propertyPath: tileGroupObjects.Array.data[4]
       value: 
       objectReference: {fileID: 60351144}
+    - target: {fileID: 9077607393122490530, guid: 786dc576500eba64cbb280c8718adce5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9125352802515377291, guid: 786dc576500eba64cbb280c8718adce5,
         type: 3}
       propertyPath: m_AnchorMax.y

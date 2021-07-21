@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenTransformGesture: {fileID: 7590700787775204592}
-  breakPoint: {fileID: 0}
-  pointerGetTime: 5
+  tileBreakCollider: {fileID: 0}
+  pointerGetTime: 10
 --- !u!1 &205103051040599387
 GameObject:
   m_ObjectHideFlags: 0

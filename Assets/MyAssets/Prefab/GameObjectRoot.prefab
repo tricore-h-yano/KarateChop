@@ -229,8 +229,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 400, y: 100, z: 1}
-  m_Center: {x: 0, y: 50, z: 0}
+  m_Size: {x: 400, y: 20, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4947468140395802510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1843,9 +1843,19 @@ PrefabInstance:
       propertyPath: checker
       value: 
       objectReference: {fileID: 5511329087917803617}
+    - target: {fileID: 205103050633755770, guid: ef96af57238497448983245ecf6475f7,
+        type: 3}
+      propertyPath: playerHitChecker
+      value: 
+      objectReference: {fileID: 5511329087917803617}
     - target: {fileID: 1608839588958644096, guid: ef96af57238497448983245ecf6475f7,
         type: 3}
       propertyPath: breakPoint
+      value: 
+      objectReference: {fileID: 9077607393122490530}
+    - target: {fileID: 1608839588958644096, guid: ef96af57238497448983245ecf6475f7,
+        type: 3}
+      propertyPath: tileBreakCollider
       value: 
       objectReference: {fileID: 9077607393122490530}
     m_RemovedComponents: []

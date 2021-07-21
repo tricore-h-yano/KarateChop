@@ -5,24 +5,12 @@ using System;
 /// <summary>
 /// 瓦グループの自動移動処理を行うクラス
 /// </summary>
-public class AutoTileGroupMover : MonoBehaviour
+public class AutoTileGroupMover : AutoMoverBase
 {
-    // プレイヤーヒットチェッカー
-    [SerializeField] PlayerHitChecker playerHitChecker = default;
-    // プレイヤーコントローラー
-    [SerializeField] PlayerController playerController = default;
     // 瓦オブジェクトのリスト
     [SerializeField] List<GameObject> tileObjects = default;
     // 割れている瓦オブジェクトのリスト
     [SerializeField] List<GameObject> breakTileObjects = default;
-    // 最大速度
-    [SerializeField] float maxSpeed = default;
-
-    // 移動フラグ
-    bool isMove;
-
-    // 受け取った移動速度保存
-    float receivedMoveSpeed;
 
     // ブレイクポイントのTag
     const string HidePointTag = "HidePoint";
@@ -40,39 +28,11 @@ public class AutoTileGroupMover : MonoBehaviour
     }
 
     /// <summary>
-    /// 初期化処理
-    /// </summary>
-    void Start()
-    {
-        isMove = false;
-        receivedMoveSpeed = 0.0f;
-    }
-
-    /// <summary>
     /// 更新処理
     /// </summary>
     void Update()
     {
-        if (isMove)
-        {
-            float moveSpeed = 0.0f;
-
-            if(receivedMoveSpeed >= maxSpeed)
-            {
-                moveSpeed = maxSpeed;
-            }
-            else
-            {
-                moveSpeed = receivedMoveSpeed;
-            }
-            transform.Translate(0, moveSpeed, 0);
-            receivedMoveSpeed *= 0.99f;
-        }
-        else
-        {
-            isMove = playerHitChecker.IsAutoMove;
-            receivedMoveSpeed = playerController.Speed;
-        }
+        base.AutoMoveProcess();
     }
 
     /// <summary>
