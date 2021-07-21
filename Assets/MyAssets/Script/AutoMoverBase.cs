@@ -6,24 +6,29 @@
 public class AutoMoverBase : MonoBehaviour
 {
     // 最大速度
-    [SerializeField] protected float maxSpeed = default;
+    [SerializeField] float maxSpeed = default;
     // ヒットチェッカー
-    [SerializeField] protected PlayerHitChecker playerHitChecker = default;
+    [SerializeField] PlayerHitChecker playerHitChecker = default;
     // プレイヤーコントローラー
-    [SerializeField] protected PlayerController playerController = default;
+    [SerializeField] PlayerController playerController = default;
     // 移動フラグ
-    protected bool isMove;
+    bool isMove;
 
     // 受け取った移動速度保存
-    protected float receivedMoveSpeed;
+    float receivedMoveSpeed;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// 初期化処理
+    /// </summary>
     void Start()
     {
         isMove = false;
         receivedMoveSpeed = 0.0f;
     }
 
+    /// <summary>
+    /// 自動移動処理
+    /// </summary>
     protected void AutoMoveProcess()
     {
         if (isMove)
