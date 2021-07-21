@@ -21,32 +21,8 @@ public class TileTypeSelector : MonoBehaviour
     public void SelectColor()
     {
         float random = Random.value;
-
-        if(random >= randomThreshold)
-        {
-            GoldTileActive();
-        }
-        else
-        {
-            NormalTileActive();
-        }
-    }
-
-    /// <summary>
-    /// 普通の瓦をアクティブにする処理
-    /// </summary>
-    void NormalTileActive()
-    {
         gameObjectRoot.SetActive(true);
-        normalTileObjectRoot.SetActive(true);
-    }
-
-    /// <summary>
-    /// 金の瓦をアクティブにする処理
-    /// </summary>
-    void GoldTileActive()
-    {
-        gameObjectRoot.SetActive(true);
-        goldTileObjectRoot.SetActive(true);
+        goldTileObjectRoot.SetActive(random >= randomThreshold);
+        normalTileObjectRoot.SetActive(!goldTileObjectRoot.activeSelf);
     }
 }
