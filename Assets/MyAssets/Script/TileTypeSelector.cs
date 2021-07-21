@@ -16,7 +16,7 @@ public class TileTypeSelector : MonoBehaviour
     [SerializeField] float randomThreshold = default;
 
     /// <summary>
-    /// buttonが押された際の処理
+    /// ランダムで色を切り替える処理
     /// </summary>
     public void SelectColor()
     {
