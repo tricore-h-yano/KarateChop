@@ -16,8 +16,8 @@ public class PlayerHitChecker : MonoBehaviour
     bool isAutoMove;
     public bool IsAutoMove { get { return isAutoMove; } }
 
-    // ブレイクポイントのTag
-    const string BreakPointTag = "BreakPoint";
+    // 動き出すポイントのTag
+    const string HitMovePointTag = "HitMovePoint";
 
     /// <summary>
     /// 初期化処理
@@ -33,7 +33,7 @@ public class PlayerHitChecker : MonoBehaviour
     /// <param name="other">触れたオブジェクトのコライダー</param>
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag(BreakPointTag))
+        if(other.gameObject.CompareTag(HitMovePointTag))
         {
             isAutoMove = true;
             transformer.enabled = false;

@@ -8,6 +8,7 @@ TagManager:
   - Tile
   - HidePoint
   - TileGroup
+  - HitMovePoint
   layers:
   - Default
   - TransparentFX
