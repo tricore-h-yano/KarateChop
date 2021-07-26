@@ -102,6 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c35b30b0349a1ea47a1a950379e9d125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapGesture: {fileID: 0}
+  tapGesture: {fileID: 21978082220848433}
   nowSceneObject: {fileID: 0}
   nextSceneObject: {fileID: 0}
