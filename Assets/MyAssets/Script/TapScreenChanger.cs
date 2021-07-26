@@ -5,7 +5,7 @@ using System;
 /// <summary>
 /// スクリーンをタップしたときに画面を切り替えるクラス
 /// </summary>
-public class ScreenTapScreenChanger : MonoBehaviour
+public class TapScreenChanger : MonoBehaviour
 {
     // ジェスチャークラス
     [SerializeField] TapGesture tapGesture = default;
