@@ -44,6 +44,12 @@ public class PlayerController : MonoBehaviour
         screenTransformGesture.StateChanged += StateChangedHandle;
         screenTransformGesture.Cancelled += CancelledHandle;
         time = 0.0f;
+
+        // 有効化されたときの初期化
+        startPosition = new Vector2(0, 0);
+        endPosition = new Vector2(0, 0);
+        speed = 0.0f;
+        tileBreakCollider.SetActive(true);
     }
 
     /// <summary>

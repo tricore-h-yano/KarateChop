@@ -27,6 +27,11 @@ public class PlayerHitChecker : MonoBehaviour
         isAutoMove = false;
     }
 
+    void OnEnable()
+    {
+        isAutoMove = false;
+    }
+
     /// <summary>
     /// トリガーに触れた時
     /// </summary>
