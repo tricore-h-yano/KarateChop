@@ -3,9 +3,9 @@ using TouchScript.Gestures;
 using System;
 
 /// <summary>
-/// スクリーンをタップしたときにシーンを切り替えるクラス
+/// スクリーンをタップしたときに画面を切り替えるクラス
 /// </summary>
-public class ScreenTapSceneChanger : MonoBehaviour
+public class ScreenTapScreenChanger : MonoBehaviour
 {
     // ジェスチャークラス
     [SerializeField] TapGesture tapGesture = default;
@@ -33,7 +33,7 @@ public class ScreenTapSceneChanger : MonoBehaviour
     }
 
     /// <summary>
-    /// スクリーンがタップされたときにシーンを切り替える処理
+    /// スクリーンがタップされたときに画面を切り替える処理
     /// </summary>
     /// <param name="sender">送信者となるオブジェクト</param>
     /// <param name="e">イベント</param>
@@ -42,5 +42,4 @@ public class ScreenTapSceneChanger : MonoBehaviour
         nowSceneObject.SetActive(false);
         nextSceneObject.SetActive(true);
     }
-
 }
