@@ -20,7 +20,7 @@ public class ScreenTapSceneChanger : MonoBehaviour
     void OnEnable()
     {
         // Transform Gestureのdelegateに登録
-        tapGesture.Tapped += OnTapped;
+        tapGesture.Tapped += OnTappedSceneChange;
     }
 
     /// <summary>
@@ -29,15 +29,15 @@ public class ScreenTapSceneChanger : MonoBehaviour
     void OnDisable()
     {
         // Transform Gestureのdelegateに登録
-        tapGesture.Tapped -= OnTapped;
+        tapGesture.Tapped -= OnTappedSceneChange;
     }
 
     /// <summary>
-    /// スクリーンがタップされたときの処理
+    /// スクリーンがタップされたときにシーンを切り替える処理
     /// </summary>
     /// <param name="sender">送信者となるオブジェクト</param>
     /// <param name="e">イベント</param>
-    void OnTapped(object sender, EventArgs e)
+    void OnTappedSceneChange(object sender, EventArgs e)
     {
         nowSceneObject.SetActive(false);
         nextSceneObject.SetActive(true);
