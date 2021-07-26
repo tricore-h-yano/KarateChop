@@ -1186,7 +1186,7 @@ PrefabInstance:
     - target: {fileID: 8589204485217145868, guid: 3511c2780ec3921409707226bfc23d0c,
         type: 3}
       propertyPath: m_Name
-      value: GoldTileGroupRoot
+      value: GoldTileGroupList
       objectReference: {fileID: 0}
     - target: {fileID: 8589204485217145868, guid: 3511c2780ec3921409707226bfc23d0c,
         type: 3}
@@ -2487,7 +2487,7 @@ PrefabInstance:
     - target: {fileID: 5900595923756473320, guid: 956787030c62cc64991d53a16ed9c2f0,
         type: 3}
       propertyPath: m_Name
-      value: NormalTileGroupRoot
+      value: NormalTileGroupList
       objectReference: {fileID: 0}
     - target: {fileID: 5915674176817077045, guid: 956787030c62cc64991d53a16ed9c2f0,
         type: 3}
@@ -3153,7 +3153,7 @@ PrefabInstance:
     - target: {fileID: 7296896852132907412, guid: 431f0790415d56643845eb2d9d159f49,
         type: 3}
       propertyPath: m_Name
-      value: BreakTileText
+      value: BreakTileCountText
       objectReference: {fileID: 0}
     - target: {fileID: 7296896852132907412, guid: 431f0790415d56643845eb2d9d159f49,
         type: 3}
