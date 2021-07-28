@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7590700787775204592}
   - component: {fileID: 1608839588958644096}
   m_Layer: 5
-  m_Name: Player
+  m_Name: PlayerHand
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,10 +84,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb76a06099904b4490c089409390178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 205103050633755761}
-  checker: {fileID: 205103050633755765}
-  playerController: {fileID: 1608839588958644096}
   maxSpeed: 50
+  playerHitChecker: {fileID: 0}
+  playerController: {fileID: 1608839588958644096}
+  gameToResultScreenChanger: {fileID: 0}
+  rectTransform: {fileID: 205103050633755766}
 --- !u!114 &205103050633755765
 MonoBehaviour:
   m_ObjectHideFlags: 0

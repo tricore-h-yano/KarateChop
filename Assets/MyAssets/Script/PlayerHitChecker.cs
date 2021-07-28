@@ -27,9 +27,14 @@ public class PlayerHitChecker : MonoBehaviour
         isAutoMove = false;
     }
 
+    /// <summary>
+    /// 有効化されたときの処理
+    /// </summary>
     void OnEnable()
     {
         isAutoMove = false;
+        transformer.enabled = true;
+        transformGesture.enabled = true;
     }
 
     /// <summary>

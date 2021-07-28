@@ -12,6 +12,8 @@ public class TileGroupManager : MonoBehaviour
     [SerializeField] GameObject lastGroup = default;
     // ポジションリセット時の間隔
     [SerializeField] float offset = default;
+    // 生成されたときに最後尾のグループを保存する
+    GameObject keepLastGroup = default;
 
     /// <summary>
     /// 初期化処理
@@ -23,6 +25,16 @@ public class TileGroupManager : MonoBehaviour
         {
             moveTileGroup.SetAction(RepositionProcess);
         }
+
+        keepLastGroup = lastGroup;
+    }
+
+    /// <summary>
+    /// 無効化されたときの処理
+    /// </summary>
+    void OnDisable()
+    {
+        lastGroup = keepLastGroup;    
     }
 
     /// <summary>

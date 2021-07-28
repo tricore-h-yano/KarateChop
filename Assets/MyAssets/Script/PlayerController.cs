@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     void OnDisable()
     {
         UnsubscribeEvent();
+        tileBreakCollider.SetActive(false);
     }
 
     /// <summary>
