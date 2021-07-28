@@ -19,20 +19,21 @@ public class AutoTileGroupMover : AutoMoverBase
     Action<GameObject> repositionAction;
 
     /// <summary>
+    /// 初期化処理
+    /// </summary>
+    void Start()
+    {
+        base.Initialize();
+        base.SetScreenChangerAction(ResetImage);
+    }
+
+    /// <summary>
     /// Actionに関数を登録する処理
     /// </summary>
     /// <param name="action">セットするAction</param>
     public void SetAction(Action<GameObject> action)
     {
         repositionAction = action;
-    }
-
-    /// <summary>
-    /// 更新処理
-    /// </summary>
-    void Update()
-    {
-        base.AutoMoveProcess();
     }
 
     /// <summary>
@@ -43,14 +44,15 @@ public class AutoTileGroupMover : AutoMoverBase
     {
         if(other.gameObject.CompareTag(HidePointTag))
         {
-            ResetProcess();
+            ResetImage();
+            repositionAction(gameObject);
         }
     }
 
     /// <summary>
-    /// 停止位置に来た時のリセット処理
+    /// 画像を元の状態に戻す処理
     /// </summary>
-    void ResetProcess()
+    void ResetImage()
     {
         foreach (var tile in tileObjects)
         {
@@ -61,7 +63,5 @@ public class AutoTileGroupMover : AutoMoverBase
         {
             tile.SetActive(false);
         }
-
-        repositionAction(gameObject);
     }
 }

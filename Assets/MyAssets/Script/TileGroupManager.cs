@@ -12,6 +12,8 @@ public class TileGroupManager : MonoBehaviour
     [SerializeField] GameObject lastGroup = default;
     // ポジションリセット時の間隔
     [SerializeField] float offset = default;
+    // 生成されたときに最後尾のグループを保存する
+    GameObject keepLastGroup = default;
 
     /// <summary>
     /// 初期化処理
@@ -21,15 +23,25 @@ public class TileGroupManager : MonoBehaviour
     {
         foreach (var moveTileGroup in tileGroupObjects)
         {
-            moveTileGroup.SetAction(RepositionProcess);
+            moveTileGroup.SetAction(Reposition);
         }
+
+        keepLastGroup = lastGroup;
+    }
+
+    /// <summary>
+    /// 無効化されたときの処理
+    /// </summary>
+    void OnDisable()
+    {
+        lastGroup = keepLastGroup;    
     }
 
     /// <summary>
     /// リセット時のポジション変更処理
     /// </summary>
     /// <param name="hitObject">リセットするオブジェクト</param>
-    void RepositionProcess(GameObject hitObject)
+    void Reposition(GameObject hitObject)
     {
         Vector3 position = hitObject.transform.position;
         position.y = lastGroup.transform.position.y - offset;

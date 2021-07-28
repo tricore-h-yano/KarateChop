@@ -1,14 +1,16 @@
-﻿
+﻿using System;
+using UnityEngine;
+
 /// <summary>
 /// プレイヤーを自動で動かすクラス
 /// </summary>
 public class AutoPlayerMover : AutoMoverBase
 {
     /// <summary>
-    /// 更新処理
+    /// 初期化処理
     /// </summary>
-    void Update()
+    void Start()
     {
-        base.AutoMoveProcess();
+        base.Initialize();
     }
 }

@@ -28,6 +28,16 @@ public class PlayerHitChecker : MonoBehaviour
     }
 
     /// <summary>
+    /// 有効化されたときの処理
+    /// </summary>
+    void OnEnable()
+    {
+        isAutoMove = false;
+        transformer.enabled = true;
+        transformGesture.enabled = true;
+    }
+
+    /// <summary>
     /// トリガーに触れた時
     /// </summary>
     /// <param name="other">触れたオブジェクトのコライダー</param>

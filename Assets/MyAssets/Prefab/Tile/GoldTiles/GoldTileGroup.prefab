@@ -89,6 +89,8 @@ MonoBehaviour:
   maxSpeed: 50
   playerHitChecker: {fileID: 0}
   playerController: {fileID: 0}
+  gameToResultScreenChanger: {fileID: 0}
+  myRectTransform: {fileID: 5082204692389583086}
   tileObjects:
   - {fileID: 6030448493130989318}
   - {fileID: 7386689986438862962}

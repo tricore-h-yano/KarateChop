@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 205103050633755766}
   - component: {fileID: 205103050633755768}
   - component: {fileID: 205103050633755771}
-  - component: {fileID: 205103050633755770}
   - component: {fileID: 205103050633755765}
   - component: {fileID: 8942228439651015066}
   - component: {fileID: 7590700787775204592}
   - component: {fileID: 1608839588958644096}
+  - component: {fileID: 8960559409808501727}
   m_Layer: 5
-  m_Name: Player
+  m_Name: PlayerHand
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,22 +72,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &205103050633755770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205103050633755761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb76a06099904b4490c089409390178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 205103050633755761}
-  checker: {fileID: 205103050633755765}
-  playerController: {fileID: 1608839588958644096}
-  maxSpeed: 50
 --- !u!114 &205103050633755765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +159,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenTransformGesture: {fileID: 7590700787775204592}
   tileBreakCollider: {fileID: 0}
-  pointerGetTime: 10
+  gameToResultScreenChanger: {fileID: 0}
+  pointerGetTime: 5
+--- !u!114 &8960559409808501727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205103050633755761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb76a06099904b4490c089409390178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 50
+  gameEndSpeed: 0.05
+  playerHitChecker: {fileID: 205103050633755765}
+  playerController: {fileID: 1608839588958644096}
+  myRectTransform: {fileID: 205103050633755766}
+  gameToResultScreenChanger: {fileID: 0}
 --- !u!1 &205103051040599387
 GameObject:
   m_ObjectHideFlags: 0
