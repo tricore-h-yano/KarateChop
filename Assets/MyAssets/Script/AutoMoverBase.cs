@@ -48,7 +48,7 @@ public class AutoMoverBase : MonoBehaviour
         isMove = false;
         receivedMoveSpeed = 0.0f;
         keepPosition = myRectTransform.position;
-        gameToResultScreenChanger.SetResetAction(OnEndGameReset);
+        gameToResultScreenChanger.SetResetAction(ResetOnEndGame);
     }
 
     /// <summary>
@@ -88,7 +88,7 @@ public class AutoMoverBase : MonoBehaviour
     /// <summary>
     /// ゲームシーン終了時に行うリセット
     /// </summary>
-    void OnEndGameReset()
+    void ResetOnEndGame()
     {
         isMove = false;
         receivedMoveSpeed = 0.0f;
