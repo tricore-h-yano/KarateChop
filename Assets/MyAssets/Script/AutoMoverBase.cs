@@ -12,9 +12,7 @@ public class AutoMoverBase : MonoBehaviour
     [SerializeField] PlayerHitChecker playerHitChecker = default;
     // プレイヤーコントローラー
     [SerializeField] PlayerController playerController = default;
-    // スクリーンチェンジャー
     [SerializeField] protected GameToResultScreenChanger gameToResultScreenChanger = default;
-    // レクトトランスフォーム
     [SerializeField] protected RectTransform myRectTransform = default;
 
     // 初期ポジションを保存する
@@ -37,7 +35,7 @@ public class AutoMoverBase : MonoBehaviour
     /// <summary>
     /// 自動移動処理
     /// </summary>
-    protected void AutoMoveProcess()
+    protected void AutoMove()
     {
         if (isMove)
         {

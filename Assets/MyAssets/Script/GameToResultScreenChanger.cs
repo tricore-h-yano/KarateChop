@@ -29,9 +29,17 @@ public class GameToResultScreenChanger : MonoBehaviour
     }
 
     /// <summary>
+    /// ゲーム終了コルーチン開始
+    /// </summary>
+    public void StartGameEndCoroutine()
+    {
+        StartCoroutine(GameEndCoroutine());
+    }
+
+    /// <summary>
     /// ゲーム画面からリザルト画面へ切り替える処理
     /// </summary>
-    void GameToResultProcess()
+    void GameToResult()
     {
         resetAction();
         nowSceneObject.SetActive(false);
@@ -45,6 +53,6 @@ public class GameToResultScreenChanger : MonoBehaviour
     public IEnumerator GameEndCoroutine()
     {
         yield return new WaitForSeconds(transitionTime);
-        GameToResultProcess();
+        GameToResult();
     }
 }

@@ -33,7 +33,7 @@ public class AutoTileGroupMover : AutoMoverBase
     /// </summary>
     void Start()
     {
-        gameToResultScreenChanger.SetAction(ResetProcess);
+        gameToResultScreenChanger.SetAction(Initialize);
         keepPosition = myRectTransform.position;
     }
 
@@ -42,7 +42,7 @@ public class AutoTileGroupMover : AutoMoverBase
     /// </summary>
     void Update()
     {
-        base.AutoMoveProcess();
+        base.AutoMove();
     }
 
     /// <summary>
@@ -53,14 +53,15 @@ public class AutoTileGroupMover : AutoMoverBase
     {
         if(other.gameObject.CompareTag(HidePointTag))
         {
-            StopResetProcess();
+            ResetImage();
+            repositionAction(gameObject);
         }
     }
 
     /// <summary>
-    /// 停止位置に来た時のリセット処理
+    /// 画像を元の状態に戻す処理
     /// </summary>
-    void StopResetProcess()
+    void ResetImage()
     {
         foreach (var tile in tileObjects)
         {
@@ -71,14 +72,12 @@ public class AutoTileGroupMover : AutoMoverBase
         {
             tile.SetActive(false);
         }
-
-        repositionAction(gameObject);
     }
 
     /// <summary>
-    /// リセット処理
+    /// ループ中に行う初期化処理
     /// </summary>
-    void ResetProcess()
+    void Initialize()
     {
         foreach (var tile in tileObjects)
         {

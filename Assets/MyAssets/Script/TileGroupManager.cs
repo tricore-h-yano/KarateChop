@@ -23,7 +23,7 @@ public class TileGroupManager : MonoBehaviour
     {
         foreach (var moveTileGroup in tileGroupObjects)
         {
-            moveTileGroup.SetAction(RepositionProcess);
+            moveTileGroup.SetAction(Reposition);
         }
 
         keepLastGroup = lastGroup;
@@ -41,7 +41,7 @@ public class TileGroupManager : MonoBehaviour
     /// リセット時のポジション変更処理
     /// </summary>
     /// <param name="hitObject">リセットするオブジェクト</param>
-    void RepositionProcess(GameObject hitObject)
+    void Reposition(GameObject hitObject)
     {
         Vector3 position = hitObject.transform.position;
         position.y = lastGroup.transform.position.y - offset;

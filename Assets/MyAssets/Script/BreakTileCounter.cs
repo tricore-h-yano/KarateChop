@@ -18,12 +18,11 @@ public class BreakTileCounter : MonoBehaviour
 
     /// <summary>
     /// 初期化処理
-    /// リセット関数の登録
     /// </summary>
     void Start()
     {
         breakTileCount = 0;
-        gameToResultScreenChanger.SetAction(ResetProcess);
+        gameToResultScreenChanger.SetAction(Initialize);
     }
 
     /// <summary>
@@ -43,9 +42,9 @@ public class BreakTileCounter : MonoBehaviour
     }
 
     /// <summary>
-    /// リセット処理
+    /// ループ中に行う初期化処理
     /// </summary>
-    void ResetProcess()
+    void Initialize()
     {
         breakTileCount = 0;
         breakTileText.SetActive(false);
