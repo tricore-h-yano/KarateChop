@@ -34,7 +34,7 @@ public class AutoTileGroupMover : AutoMoverBase
     void Start()
     {
         gameToResultScreenChanger.SetAction(ResetProcess);
-        keepPosition = rectTransform.position;
+        keepPosition = myRectTransform.position;
     }
 
     /// <summary>
@@ -90,8 +90,7 @@ public class AutoTileGroupMover : AutoMoverBase
             tile.SetActive(false);
         }
         isMove = false;
-        isEnd = false;
         receivedMoveSpeed = 0.0f;
-        rectTransform.position = keepPosition;
+        myRectTransform.position = keepPosition;
     }
 }

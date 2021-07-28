@@ -90,7 +90,7 @@ MonoBehaviour:
   playerHitChecker: {fileID: 0}
   playerController: {fileID: 0}
   gameToResultScreenChanger: {fileID: 0}
-  rectTransform: {fileID: 5251233998726482948}
+  myRectTransform: {fileID: 5251233998726482948}
   tileObjects:
   - {fileID: 1292952876270603753}
   - {fileID: 3034938158035851530}

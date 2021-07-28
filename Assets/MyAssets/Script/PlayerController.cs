@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] ScreenTransformGesture screenTransformGesture = default;
     // 瓦を割るためのコライダー
     [SerializeField] GameObject tileBreakCollider = default;
+    // スクリーンチェンジャー
+    [SerializeField] GameToResultScreenChanger gameToResultScreenChanger = default;
     // ポインターの場所を取得する時間
     [SerializeField] float pointerGetTime = default;
 
@@ -29,10 +31,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Start()
     {
+        gameToResultScreenChanger.SetAction(ResetProcess);
         startPosition = new Vector2(0, 0);
         endPosition = new Vector2(0, 0);
         speed = 0.0f;
-        tileBreakCollider.SetActive(true);
     }
 
     /// <summary>
@@ -43,13 +45,6 @@ public class PlayerController : MonoBehaviour
         // Transform Gestureのdelegateに登録
         screenTransformGesture.StateChanged += StateChangedHandle;
         screenTransformGesture.Cancelled += CancelledHandle;
-        time = 0.0f;
-
-        // 有効化されたときの初期化
-        startPosition = new Vector2(0, 0);
-        endPosition = new Vector2(0, 0);
-        speed = 0.0f;
-        tileBreakCollider.SetActive(true);
     }
 
     /// <summary>
@@ -80,6 +75,18 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
+    /// リセット処理
+    /// </summary>
+    void ResetProcess()
+    {
+        startPosition = new Vector2(0, 0);
+        endPosition = new Vector2(0, 0);
+        speed = 0.0f;
+        time = 0.0f;
+        tileBreakCollider.SetActive(false);
+    }
+
+    /// <summary>
     /// ドラッグ中の処理
     /// </summary>
     /// <param name="sender">送信者となるオブジェクト</param>
@@ -92,6 +99,11 @@ public class PlayerController : MonoBehaviour
         {
             startPosition = screenTransformGesture.ScreenPosition;
             time = 0.0f;
+        }
+
+        if(!tileBreakCollider.activeSelf)
+        {
+            tileBreakCollider.SetActive(true);
         }
     }
 

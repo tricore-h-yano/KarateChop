@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System;
 
 /// <summary>
@@ -15,9 +16,6 @@ public class GameToResultScreenChanger : MonoBehaviour
     // 遷移する時間
     [SerializeField] float transitionTime;
 
-    // 時間計測
-    float time;
-
     // アクション
     Action resetAction;
 
@@ -31,26 +29,22 @@ public class GameToResultScreenChanger : MonoBehaviour
     }
 
     /// <summary>
-    /// 初期化処理
-    /// リセット関数を登録
-    /// </summary>
-    void Start()
-    {
-        autoPlayerMover.SetAction(GameToResultProcess);
-    }
-
-    /// <summary>
     /// ゲーム画面からリザルト画面へ切り替える処理
     /// </summary>
     void GameToResultProcess()
     {
-        time += Time.deltaTime;
+        resetAction();
+        nowSceneObject.SetActive(false);
+        nextSceneObject.SetActive(true);
+    }
 
-        if(time >= transitionTime)
-        {
-            resetAction();
-            nowSceneObject.SetActive(false);
-            nextSceneObject.SetActive(true);
-        }
+    /// <summary>
+    /// ゲーム終了コルーチン
+    /// </summary>
+    /// <returns>待機時間</returns>
+    public IEnumerator GameEndCoroutine()
+    {
+        yield return new WaitForSeconds(transitionTime);
+        GameToResultProcess();
     }
 }

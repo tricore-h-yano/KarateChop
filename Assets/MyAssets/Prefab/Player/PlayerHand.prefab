@@ -88,7 +88,7 @@ MonoBehaviour:
   playerHitChecker: {fileID: 0}
   playerController: {fileID: 1608839588958644096}
   gameToResultScreenChanger: {fileID: 0}
-  rectTransform: {fileID: 205103050633755766}
+  myRectTransform: {fileID: 205103050633755766}
 --- !u!114 &205103050633755765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenTransformGesture: {fileID: 7590700787775204592}
   tileBreakCollider: {fileID: 0}
-  pointerGetTime: 10
+  gameToResultScreenChanger: {fileID: 0}
+  pointerGetTime: 5
 --- !u!1 &205103051040599387
 GameObject:
   m_ObjectHideFlags: 0

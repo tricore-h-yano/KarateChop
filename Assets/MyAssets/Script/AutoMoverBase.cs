@@ -3,6 +3,7 @@
 /// <summary>
 /// 自動移動を行うクラスの基底クラス
 /// </summary>
+[RequireComponent(typeof(RectTransform))]
 public class AutoMoverBase : MonoBehaviour
 {
     // 最大速度
@@ -14,14 +15,13 @@ public class AutoMoverBase : MonoBehaviour
     // スクリーンチェンジャー
     [SerializeField] protected GameToResultScreenChanger gameToResultScreenChanger = default;
     // レクトトランスフォーム
-    [SerializeField] protected RectTransform rectTransform = default;
+    [SerializeField] protected RectTransform myRectTransform = default;
 
     // 初期ポジションを保存する
     protected Vector3 keepPosition;
     // 移動フラグ
     protected bool isMove;
-    // ゲーム終了フラグ
-    protected bool isEnd;
+
     // 受け取った移動速度保存
     protected float receivedMoveSpeed;
 
@@ -31,7 +31,6 @@ public class AutoMoverBase : MonoBehaviour
     void Start()
     {
         isMove = false;
-        isEnd = false;
         receivedMoveSpeed = 0.0f;
     }
 

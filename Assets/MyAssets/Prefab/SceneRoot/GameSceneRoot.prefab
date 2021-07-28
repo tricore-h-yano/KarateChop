@@ -2057,6 +2057,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 205103050633755770, guid: ef96af57238497448983245ecf6475f7,
         type: 3}
+      propertyPath: myRectTransform
+      value: 
+      objectReference: {fileID: 8236251703871685268}
+    - target: {fileID: 205103050633755770, guid: ef96af57238497448983245ecf6475f7,
+        type: 3}
       propertyPath: playerHitChecker
       value: 
       objectReference: {fileID: 8236251703871685271}
@@ -2081,6 +2086,11 @@ PrefabInstance:
       propertyPath: tileBreakCollider
       value: 
       objectReference: {fileID: 5073231457379158660}
+    - target: {fileID: 1608839588958644096, guid: ef96af57238497448983245ecf6475f7,
+        type: 3}
+      propertyPath: gameToResultScreenChanger
+      value: 
+      objectReference: {fileID: 7177282137007963362}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef96af57238497448983245ecf6475f7, type: 3}
 --- !u!224 &8236251703871685268 stripped
