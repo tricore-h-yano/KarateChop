@@ -89,6 +89,7 @@ MonoBehaviour:
   playerController: {fileID: 1608839588958644096}
   gameToResultScreenChanger: {fileID: 0}
   myRectTransform: {fileID: 205103050633755766}
+  gameEndSpeed: 0.05
 --- !u!114 &205103050633755765
 MonoBehaviour:
   m_ObjectHideFlags: 0
