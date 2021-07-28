@@ -50,7 +50,7 @@ public class GameToResultScreenChanger : MonoBehaviour
     /// ゲーム終了コルーチン
     /// </summary>
     /// <returns>待機時間</returns>
-    public IEnumerator GameEndCoroutine()
+    IEnumerator GameEndCoroutine()
     {
         yield return new WaitForSeconds(transitionTime);
         GameToResult();
