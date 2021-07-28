@@ -22,7 +22,7 @@ public class BreakTileCounter : MonoBehaviour
     void Start()
     {
         breakTileCount = 0;
-        gameToResultScreenChanger.SetAction(Initialize);
+        gameToResultScreenChanger.SetResetAction(OnEndGameReset);
     }
 
     /// <summary>
@@ -42,9 +42,9 @@ public class BreakTileCounter : MonoBehaviour
     }
 
     /// <summary>
-    /// ループ中に行う初期化処理
+    /// ゲームシーン終了時に行うリセット
     /// </summary>
-    void Initialize()
+    void OnEndGameReset()
     {
         breakTileCount = 0;
         breakTileText.SetActive(false);

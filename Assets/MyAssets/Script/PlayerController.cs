@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Start()
     {
-        gameToResultScreenChanger.SetAction(Initialize);
+        gameToResultScreenChanger.SetResetAction(OnEndGameReset);
         startPosition = new Vector2(0, 0);
         endPosition = new Vector2(0, 0);
         speed = 0.0f;
@@ -75,9 +75,9 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// ループ中に行う初期化処理
+    /// ゲームシーン終了時に行うリセット
     /// </summary>
-    void Initialize()
+    void OnEndGameReset()
     {
         startPosition = new Vector2(0, 0);
         endPosition = new Vector2(0, 0);

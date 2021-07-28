@@ -7,8 +7,6 @@ using System;
 /// </summary>
 public class GameToResultScreenChanger : MonoBehaviour
 {
-    // プレイヤーの自動移動クラス
-    [SerializeField] AutoPlayerMover autoPlayerMover;
     // 今のシーン
     [SerializeField] GameObject nowSceneObject;
     // 次のシーン
@@ -23,7 +21,7 @@ public class GameToResultScreenChanger : MonoBehaviour
     /// Actionに関数を登録する処理
     /// </summary>
     /// <param name="action">セットするAction</param>
-    public void SetAction(Action action)
+    public void SetResetAction(Action action)
     {
         resetAction += action;
     }
