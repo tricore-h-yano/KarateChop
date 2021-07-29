@@ -1,6 +1,9 @@
 ﻿using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// スコアを管理するクラス
+/// </summary>
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] BreakTileCounter breakTileCounter = default;
