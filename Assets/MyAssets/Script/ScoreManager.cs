@@ -2,7 +2,7 @@
 using UnityEngine;
 
 /// <summary>
-/// スコアを管理するクラス
+/// スコアのロードと書き換えと保存するクラス
 /// </summary>
 public class ScoreManager : MonoBehaviour
 {
