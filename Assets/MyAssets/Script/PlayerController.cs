@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Start()
     {
-        gameToResultScreenChanger.SetResetAction(ResetOnEndGame);
+        gameToResultScreenChanger.SetEndGameAction(PriorityOrder.Normal, ResetOnEndGame);
         startPosition = new Vector2(0, 0);
         endPosition = new Vector2(0, 0);
         speed = 0.0f;

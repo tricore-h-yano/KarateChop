@@ -90,8 +90,8 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         nowScore = 0;
-        gameToResultScreenChanger.SetEndGameAction(GetCounterScore);
-        gameToResultScreenChanger.SetResetAction(ScoreUpdate);
+        gameToResultScreenChanger.SetEndGameAction(PriorityOrder.Fast, GetCounterScore);
+        gameToResultScreenChanger.SetEndGameAction(PriorityOrder.Normal, ScoreUpdate);
     }
 
     /// <summary>
