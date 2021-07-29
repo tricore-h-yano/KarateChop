@@ -145,6 +145,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThisTimeScore
       objectReference: {fileID: 0}
+    - target: {fileID: 6442368335612628160, guid: 73bdd8909216b4d438e87d9253ff8f63,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8519389672495682004, guid: 73bdd8909216b4d438e87d9253ff8f63,
         type: 3}
       propertyPath: m_Pivot.x
@@ -250,7 +255,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2505426887593905022, guid: 73bdd8909216b4d438e87d9253ff8f63, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 73bdd8909216b4d438e87d9253ff8f63, type: 3}
 --- !u!224 &4187221725266038909 stripped
 RectTransform:
@@ -510,6 +516,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7244928994555580829, guid: c2e04e16ed1372d4bb287fb39a3f6fb8,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2e04e16ed1372d4bb287fb39a3f6fb8, type: 3}
 --- !u!224 &598514489655997581 stripped
@@ -643,7 +654,7 @@ PrefabInstance:
     - target: {fileID: 8680735484473952682, guid: 8570be356609f834abe9c7c5cabc204e,
         type: 3}
       propertyPath: m_text
-      value: 0
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8570be356609f834abe9c7c5cabc204e, type: 3}
