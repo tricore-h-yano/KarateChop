@@ -28,13 +28,6 @@ public class TileTypeSelector : MonoBehaviour
         goldTileObjectRoot.SetActive(random >= randomThreshold);
         normalTileObjectRoot.SetActive(!goldTileObjectRoot.activeSelf);
 
-        if(goldTileObjectRoot.activeSelf)
-        {
-            isGold = true;
-        }
-        else
-        {
-            isGold = false;
-        }
+        isGold = goldTileObjectRoot.activeSelf;
     }
 }

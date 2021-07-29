@@ -1941,9 +1941,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
         type: 3}
+      propertyPath: rankText
+      value: 
+      objectReference: {fileID: 2133103141}
+    - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
+        type: 3}
+      propertyPath: nowScoreText
+      value: 
+      objectReference: {fileID: 835978602}
+    - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
+        type: 3}
       propertyPath: rankTextMesh
       value: 
       objectReference: {fileID: 2133103141}
+    - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
+        type: 3}
+      propertyPath: totalScoreText
+      value: 
+      objectReference: {fileID: 1145137874}
     - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
         type: 3}
       propertyPath: breakTileCounter
@@ -1961,9 +1976,19 @@ PrefabInstance:
       objectReference: {fileID: 1141362002}
     - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
         type: 3}
+      propertyPath: goldHighScoreText
+      value: 
+      objectReference: {fileID: 711236056}
+    - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
+        type: 3}
       propertyPath: totalScoreTextMesh
       value: 
       objectReference: {fileID: 1145137874}
+    - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
+        type: 3}
+      propertyPath: normalHighScoreText
+      value: 
+      objectReference: {fileID: 756068265}
     - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
         type: 3}
       propertyPath: goldHighScoreTextMesh

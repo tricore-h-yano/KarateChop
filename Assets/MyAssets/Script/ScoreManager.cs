@@ -10,11 +10,12 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] GameToResultScreenChanger gameToResultScreenChanger = default;
     [SerializeField] TileTypeSelector tileTypeSelector = default;
 
-    [SerializeField] TextMeshProUGUI nowScoreTextMesh = default;
-    [SerializeField] TextMeshProUGUI totalScoreTextMesh = default;
-    [SerializeField] TextMeshProUGUI rankTextMesh = default;
-    [SerializeField] TextMeshProUGUI normalHighScoreTextMesh = default;
-    [SerializeField] TextMeshProUGUI goldHighScoreTextMesh = default;
+    // スコアテキスト
+    [SerializeField] TextMeshProUGUI nowScoreText = default;
+    [SerializeField] TextMeshProUGUI totalScoreText = default;
+    [SerializeField] TextMeshProUGUI rankText = default;
+    [SerializeField] TextMeshProUGUI normalHighScoreText = default;
+    [SerializeField] TextMeshProUGUI goldHighScoreText = default;
 
     // 割った枚数によるランク付けのための閾値
     [SerializeField] float firstScoreRankThreshold = default;
@@ -74,13 +75,12 @@ public class ScoreManager : MonoBehaviour
 
         if (normalHighScore > 0)
         {
-            normalHighScoreTextMesh.text = NormalHighSheet + normalHighScore + Sheet;
-
+            normalHighScoreText.text = NormalHighSheet + normalHighScore + Sheet;
         }
 
         if (goldHighScore > 0)
         {
-            goldHighScoreTextMesh.text = GoldHighSheet + goldHighScore + Sheet;
+            goldHighScoreText.text = GoldHighSheet + goldHighScore + Sheet;
         }
     }
 
@@ -92,26 +92,6 @@ public class ScoreManager : MonoBehaviour
         nowScore = 0;
         gameToResultScreenChanger.SetEndGameAction(GetCounterScore);
         gameToResultScreenChanger.SetResetAction(ScoreUpdate);
-    }
-
-    /// <summary>
-    /// 更新処理
-    /// </summary>
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("セーブデータ削除");
-            DeleteSaveDate();
-        }
-    }
-
-    /// <summary>
-    /// セーブデータ削除
-    /// </summary>
-    void DeleteSaveDate()
-    {
-        PlayerPrefs.DeleteAll();
     }
 
     /// <summary>
@@ -150,46 +130,55 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     void RankUpdate()
     {
-        string scoreRank;
-        string totalScoreRank;
+        rank = TotalScoreRankEvaluation() + ScoreRankEvaluation();
+    }
 
-        // 割った枚数の評価
+    /// <summary>
+    /// 割った枚数の評価
+    /// </summary>
+    /// <returns>評価されたランク</returns>
+    string ScoreRankEvaluation()
+    {
         if (firstScoreRankThreshold > nowScore)
         {
-            scoreRank = WhiteBelt;
+            return WhiteBelt;
         }
-        else if(firstScoreRankThreshold <= nowScore && secondScoreRankThreshold > nowScore)
+        else if (firstScoreRankThreshold <= nowScore && secondScoreRankThreshold > nowScore)
         {
-            scoreRank = BlackBelt;
+            return BlackBelt;
         }
-        else if(secondScoreRankThreshold <= nowScore && thirdScoreRankThreshold> nowScore)
+        else if (secondScoreRankThreshold <= nowScore && thirdScoreRankThreshold > nowScore)
         {
-            scoreRank = Master;
+            return Master;
         }
         else
         {
-            scoreRank = Ogre;
+            return Ogre;
         }
+    }
 
-        // 総枚数の評価
+    /// <summary>
+    /// 総枚数の評価
+    /// </summary>
+    /// <returns>評価されたスコア</returns>
+    string TotalScoreRankEvaluation()
+    {
         if (firstTotalScoreRankThreshold > nowScore)
         {
-            totalScoreRank = MyHome;
+            return MyHome;
         }
         else if (firstTotalScoreRankThreshold <= nowScore && secondTotalScoreRankThreshold > nowScore)
         {
-            totalScoreRank = Japanese;
+            return Japanese;
         }
         else if (secondTotalScoreRankThreshold <= nowScore && thirdTotalScoreRankThreshold > nowScore)
         {
-            totalScoreRank = Worlds;
+            return Worlds;
         }
         else
         {
-            totalScoreRank = Space;
+            return Space;
         }
-
-        rank = totalScoreRank + scoreRank;
     }
 
     /// <summary>
@@ -198,24 +187,23 @@ public class ScoreManager : MonoBehaviour
     void SendScore()
     {
         string count = nowScore.ToString();
-        nowScoreTextMesh.text = count + Sheet;
+        nowScoreText.text = count + Sheet;
 
         count = totalScore.ToString();
-        totalScoreTextMesh.text = count + Sheet;
+        totalScoreText.text = count + Sheet;
 
-        rankTextMesh.text = rank;
+        rankText.text = rank;
 
         if(normalHighScore > 0)
         {
             count = normalHighScore.ToString();
-            normalHighScoreTextMesh.text = NormalHighSheet + count + Sheet;
-
+            normalHighScoreText.text = NormalHighSheet + count + Sheet;
         }
 
         if(goldHighScore > 0)
         {
             count = goldHighScore.ToString();
-            goldHighScoreTextMesh.text = GoldHighSheet + count + Sheet;
+            goldHighScoreText.text = GoldHighSheet + count + Sheet;
         }
     }
 

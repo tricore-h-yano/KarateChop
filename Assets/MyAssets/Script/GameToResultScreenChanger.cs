@@ -19,7 +19,7 @@ public class GameToResultScreenChanger : MonoBehaviour
     Action endGameAction;
 
     /// <summary>
-    /// Actionに関数を登録する処理
+    /// ResetActionに関数を登録
     /// </summary>
     /// <param name="action">セットするAction</param>
     public void SetResetAction(Action action)
@@ -28,7 +28,7 @@ public class GameToResultScreenChanger : MonoBehaviour
     }
 
     /// <summary>
-    /// Actionに関数を登録する処理
+    /// EndGameActionに関数を登録
     /// </summary>
     /// <param name="action">セットするAction</param>
     public void SetEndGameAction(Action action)
