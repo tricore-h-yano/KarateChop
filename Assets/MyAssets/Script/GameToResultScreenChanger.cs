@@ -14,12 +14,13 @@ public class GameToResultScreenChanger : MonoBehaviour
     // 遷移する時間
     [SerializeField] float transitionTime;
 
-    // アクション
+    // リセットアクション
     Action resetAction;
+    // ゲーム終了時アクション
     Action endGameAction;
 
     /// <summary>
-    /// ResetActionに関数を登録
+    /// リセットアクションに関数を登録
     /// </summary>
     /// <param name="action">セットするAction</param>
     public void SetResetAction(Action action)
@@ -28,7 +29,7 @@ public class GameToResultScreenChanger : MonoBehaviour
     }
 
     /// <summary>
-    /// EndGameActionに関数を登録
+    /// ゲーム終了時アクション
     /// </summary>
     /// <param name="action">セットするAction</param>
     public void SetEndGameAction(Action action)
