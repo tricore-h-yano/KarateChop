@@ -16,6 +16,7 @@ public class GameToResultScreenChanger : MonoBehaviour
 
     // アクション
     Action resetAction;
+    Action endGameAction;
 
     /// <summary>
     /// Actionに関数を登録する処理
@@ -24,6 +25,15 @@ public class GameToResultScreenChanger : MonoBehaviour
     public void SetResetAction(Action action)
     {
         resetAction += action;
+    }
+
+    /// <summary>
+    /// Actionに関数を登録する処理
+    /// </summary>
+    /// <param name="action">セットするAction</param>
+    public void SetEndGameAction(Action action)
+    {
+        endGameAction += action;
     }
 
     /// <summary>
@@ -51,6 +61,7 @@ public class GameToResultScreenChanger : MonoBehaviour
     IEnumerator GameEndCoroutine()
     {
         yield return new WaitForSeconds(transitionTime);
+        endGameAction();
         GameToResult();
     }
 }
