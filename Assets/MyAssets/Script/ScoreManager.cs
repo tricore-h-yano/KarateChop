@@ -52,16 +52,16 @@ public class ScoreManager : MonoBehaviour
     const string GoldHighSheet = "ゴールド瓦のハイスコア";
 
     // 割った枚数ランク
-    const string WhiteBelt = "白帯";
-    const string BlackBelt = "黒帯";
-    const string Master = "達人";
-    const string Ogre = "鬼";
+    const string ScoreRankC = "白帯";
+    const string ScoreRankB = "黒帯";
+    const string ScoreRankA = "達人";
+    const string ScoreRankS = "鬼";
 
     // 割った総枚数ランク
-    const string MyHome = "我が家の";
-    const string Japanese = "日本一の";
-    const string Worlds = "世界一の";
-    const string Space = "宇宙一の";
+    const string TotalScoreRankC = "我が家の";
+    const string TotalScoreRankB = "日本一の";
+    const string TotalScoreRankA = "世界一の";
+    const string TotalScoreRankS = "宇宙一の";
 
     /// <summary>
     /// 起動時の処理
@@ -73,14 +73,23 @@ public class ScoreManager : MonoBehaviour
         totalScore = PlayerPrefs.GetInt(TotalScoreKey);
         rank = PlayerPrefs.GetString(RankKey);
 
+        // 常にテキスト表示していますが、0以下の間は空文字を代入し非表示みたいに見せています。
         if (normalHighScore > 0)
         {
             normalHighScoreText.text = NormalHighSheet + normalHighScore + Sheet;
+        }
+        else
+        {
+            normalHighScoreText.text = null;
         }
 
         if (goldHighScore > 0)
         {
             goldHighScoreText.text = GoldHighSheet + goldHighScore + Sheet;
+        }
+        else
+        {
+            goldHighScoreText.text = null;
         }
     }
 
@@ -117,11 +126,8 @@ public class ScoreManager : MonoBehaviour
         }
 
         totalScore += nowScore;
-
         RankUpdate();
-
         SendScore();
-
         SaveScore();
     }
 
@@ -139,21 +145,21 @@ public class ScoreManager : MonoBehaviour
     /// <returns>評価されたランク</returns>
     string ScoreRankEvaluation()
     {
-        if (firstScoreRankThreshold > nowScore)
+        if (firstScoreRankThreshold >= nowScore)
         {
-            return WhiteBelt;
+            return ScoreRankC;
         }
-        else if (firstScoreRankThreshold <= nowScore && secondScoreRankThreshold > nowScore)
+        else if (secondScoreRankThreshold >= nowScore)
         {
-            return BlackBelt;
+            return ScoreRankB;
         }
-        else if (secondScoreRankThreshold <= nowScore && thirdScoreRankThreshold > nowScore)
+        else if (thirdScoreRankThreshold >= nowScore)
         {
-            return Master;
+            return ScoreRankA;
         }
         else
         {
-            return Ogre;
+            return ScoreRankS;
         }
     }
 
@@ -163,21 +169,21 @@ public class ScoreManager : MonoBehaviour
     /// <returns>評価されたスコア</returns>
     string TotalScoreRankEvaluation()
     {
-        if (firstTotalScoreRankThreshold > nowScore)
+        if (firstTotalScoreRankThreshold >= totalScore)
         {
-            return MyHome;
+            return TotalScoreRankC;
         }
-        else if (firstTotalScoreRankThreshold <= nowScore && secondTotalScoreRankThreshold > nowScore)
+        else if (secondTotalScoreRankThreshold >= totalScore)
         {
-            return Japanese;
+            return TotalScoreRankB;
         }
-        else if (secondTotalScoreRankThreshold <= nowScore && thirdTotalScoreRankThreshold > nowScore)
+        else if (thirdTotalScoreRankThreshold >= totalScore)
         {
-            return Worlds;
+            return TotalScoreRankA;
         }
         else
         {
-            return Space;
+            return TotalScoreRankS;
         }
     }
 
@@ -186,24 +192,28 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     void SendScore()
     {
-        string count = nowScore.ToString();
-        nowScoreText.text = count + Sheet;
+        nowScoreText.text = nowScore + Sheet;
 
-        count = totalScore.ToString();
-        totalScoreText.text = count + Sheet;
+        totalScoreText.text = totalScore + Sheet;
 
         rankText.text = rank;
 
-        if(normalHighScore > 0)
+        if (normalHighScore > 0)
         {
-            count = normalHighScore.ToString();
-            normalHighScoreText.text = NormalHighSheet + count + Sheet;
+            normalHighScoreText.text = NormalHighSheet + normalHighScore + Sheet;
+        }
+        else
+        {
+            normalHighScoreText.text = null;
         }
 
-        if(goldHighScore > 0)
+        if (goldHighScore > 0)
         {
-            count = goldHighScore.ToString();
-            goldHighScoreText.text = GoldHighSheet + count + Sheet;
+            goldHighScoreText.text = GoldHighSheet + goldHighScore + Sheet;
+        }
+        else
+        {
+            goldHighScoreText.text = null;
         }
     }
 

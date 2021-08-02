@@ -804,6 +804,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -330
       objectReference: {fileID: 0}
+    - target: {fileID: 7405633574265870690, guid: 4907225511a370949ad2a953bce5a597,
+        type: 3}
+      propertyPath: pointerGetTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7405633574265870690, guid: 4907225511a370949ad2a953bce5a597,
+        type: 3}
+      propertyPath: speedCorrectionValue
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7488794283633768175, guid: 4907225511a370949ad2a953bce5a597,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1852,6 +1862,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9102480814762509758, guid: 131d166453cb55e49bcfbd2464f95099,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 131d166453cb55e49bcfbd2464f95099, type: 3}
 --- !u!1 &2090554725 stripped
@@ -1997,7 +2012,7 @@ PrefabInstance:
     - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
         type: 3}
       propertyPath: firstScoreRankThreshold
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
         type: 3}
@@ -2007,12 +2022,12 @@ PrefabInstance:
     - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
         type: 3}
       propertyPath: thirdScoreRankThreshold
-      value: 800
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
         type: 3}
       propertyPath: secondScoreRankThreshold
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
         type: 3}
@@ -2027,12 +2042,12 @@ PrefabInstance:
     - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
         type: 3}
       propertyPath: thirdTotalScoreRankThreshold
-      value: 10000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 6940022753853605963, guid: d8974d30a7d923d48bbd0325d2cb52dd,
         type: 3}
       propertyPath: secondTotalScoreRankThreshold
-      value: 5000
+      value: 3000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8974d30a7d923d48bbd0325d2cb52dd, type: 3}

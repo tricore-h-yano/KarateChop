@@ -15,8 +15,7 @@ public class TileTypeSelector : MonoBehaviour
     // 金の瓦が出現するランダムな値の閾値
     [SerializeField] float randomThreshold = default;
 
-    bool isGold = false;
-    public bool IsGold { get { return isGold; } }
+    public bool IsGold { get; private set; } = false;
 
     /// <summary>
     /// ランダムで色を切り替える処理
@@ -28,6 +27,6 @@ public class TileTypeSelector : MonoBehaviour
         goldTileObjectRoot.SetActive(random >= randomThreshold);
         normalTileObjectRoot.SetActive(!goldTileObjectRoot.activeSelf);
 
-        isGold = goldTileObjectRoot.activeSelf;
+        IsGold = goldTileObjectRoot.activeSelf;
     }
 }
