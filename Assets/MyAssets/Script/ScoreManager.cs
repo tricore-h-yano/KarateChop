@@ -198,6 +198,7 @@ public class ScoreManager : MonoBehaviour
 
         rankText.text = rank;
 
+        // 常にテキスト表示していますが、0以下の間は空文字を代入し非表示みたいに見せています。
         if (normalHighScore > 0)
         {
             normalHighScoreText.text = NormalHighSheet + normalHighScore + Sheet;
