@@ -1,6 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+
+/// <summary>
+/// 呼び出しの優先順位
+/// </summary>
+public enum PriorityOrder
+{
+    Fast = 1,
+    Normal = 2,
+    Slow = 3
+}
 
 /// <summary>
 /// ゲーム画面からリザルト画面へ画面遷移するクラス
@@ -14,16 +26,25 @@ public class GameToResultScreenChanger : MonoBehaviour
     // 遷移する時間
     [SerializeField] float transitionTime;
 
-    // アクション
-    Action resetAction;
+    // ゲーム終了時アクション
+    Dictionary<PriorityOrder, Action> endGameActions = new Dictionary<PriorityOrder, Action>();
 
     /// <summary>
-    /// Actionに関数を登録する処理
+    /// ゲーム終了時のアクションをセット
     /// </summary>
-    /// <param name="action">セットするAction</param>
-    public void SetResetAction(Action action)
+    /// <param name="priority">優先度</param>
+    /// <param name="action">セットするアクション</param>
+    public void SetEndGameAction(PriorityOrder priority, Action setAction)
     {
-        resetAction += action;
+        if(endGameActions.ContainsKey(priority))
+        {
+            endGameActions[priority] += setAction;
+        }
+        else
+        {
+            endGameActions.Add(priority, setAction);
+            endGameActions.OrderBy(arg => arg.Key);
+        }
     }
 
     /// <summary>
@@ -39,7 +60,10 @@ public class GameToResultScreenChanger : MonoBehaviour
     /// </summary>
     void GameToResult()
     {
-        resetAction();
+        foreach (var pair in endGameActions)
+        {
+            pair.Value.Invoke();
+        }
         nowSceneObject.SetActive(false);
         nextSceneObject.SetActive(true);
     }
