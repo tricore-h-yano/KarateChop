@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class TutorialButtonController : MonoBehaviour
 {
+    [SerializeField] SceneController sceneController;
     [SerializeField] Button button = default;
-    [SerializeField] Animator animator = default;
+    [SerializeField] Animator sceneAnimator = default;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,8 @@ public class TutorialButtonController : MonoBehaviour
 
     void OnClickTransition()
     {
-        animator.SetBool("TitleToTutorial", true);
+        sceneAnimator.SetBool("TitleToTutorial", true);
+        //sceneController.StartTitleToTutorialChange();
+        //animator.SetBool("TitleToTutorial", true);
     }
 }
