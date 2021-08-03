@@ -807,7 +807,7 @@ PrefabInstance:
     - target: {fileID: 7405633574265870690, guid: 4907225511a370949ad2a953bce5a597,
         type: 3}
       propertyPath: pointerGetTime
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7405633574265870690, guid: 4907225511a370949ad2a953bce5a597,
         type: 3}
