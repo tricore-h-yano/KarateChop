@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2067789369415891701}
   - component: {fileID: 2067789369415891700}
   m_Layer: 5
-  m_Name: TutorialTileImageGroup
+  m_Name: TutorialNormalTileImageGroup
   m_TagString: TileGroup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ PrefabInstance:
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
@@ -246,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
@@ -371,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
@@ -496,7 +496,7 @@ PrefabInstance:
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
@@ -621,7 +621,7 @@ PrefabInstance:
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
@@ -746,7 +746,7 @@ PrefabInstance:
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
@@ -871,7 +871,7 @@ PrefabInstance:
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
@@ -996,7 +996,7 @@ PrefabInstance:
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
@@ -1121,7 +1121,7 @@ PrefabInstance:
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
@@ -1246,7 +1246,7 @@ PrefabInstance:
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8360865973164942585, guid: 5299b0afe71eb74479766dc16316aa7c,
         type: 3}
