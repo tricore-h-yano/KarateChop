@@ -6,8 +6,6 @@
 /// </summary>
 public class TileTypeSelector : MonoBehaviour
 {
-    // ゲームシーンそのものの親クラス
-    [SerializeField] GameObject gameObjectRoot = default;
     // 普通の瓦オブジェクトの親クラス
     [SerializeField] GameObject normalTileObjectRoot = default;
     // 金の瓦オブジェクトの親クラス
@@ -23,7 +21,6 @@ public class TileTypeSelector : MonoBehaviour
     public void SelectColor()
     {
         float random = Random.value;
-        gameObjectRoot.SetActive(true);
         goldTileObjectRoot.SetActive(random >= randomThreshold);
         normalTileObjectRoot.SetActive(!goldTileObjectRoot.activeSelf);
 

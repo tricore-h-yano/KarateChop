@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] ScreenTransformGesture screenTransformGesture = default;
     // 瓦を割るためのコライダー
     [SerializeField] GameObject tileBreakCollider = default;
-    [SerializeField] GameToResultScreenChanger gameToResultScreenChanger = default;
+    [SerializeField] ScreenController screenController = default;
     // ポインターの場所を取得する時間
     [SerializeField] float pointerGetTime = default;
 
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Start()
     {
-        gameToResultScreenChanger.SetEndGameAction(PriorityOrder.Normal, ResetOnEndGame);
+        screenController.SetEndGameAction(PriorityOrder.Normal, ResetOnEndGame);
         startPosition = new Vector2(0, 0);
         endPosition = new Vector2(0, 0);
         speed = 0.0f;

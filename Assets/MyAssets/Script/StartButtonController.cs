@@ -5,31 +5,21 @@ using UnityEngine.UI;
 
 public class StartButtonController : MonoBehaviour
 {
-    [SerializeField] Button button;
     [SerializeField] TileTypeSelector tileTypeSelector;
-    [SerializeField] GameObject fadeInOutObject;
-    [SerializeField] GameObject nowScene;
-    [SerializeField] GameObject nextScene;
+    [SerializeField] ScreenController screenController;
+    [SerializeField] Button button = default;
+
     /// <summary>
     /// 初期化処理
     /// </summary>
     void Start()
     {
-        button.onClick.AddListener(Transition);
+        button.onClick.AddListener(() => OnClickTransition());
     }
 
-    void Transition()
-    {
-        StartCoroutine("FadeInOut");
-    }
-
-    IEnumerator FadeInOut()
+    void OnClickTransition()
     {
         tileTypeSelector.SelectColor();
-        fadeInOutObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-        nowScene.SetActive(false);
-        nextScene.SetActive(true);
-        fadeInOutObject.SetActive(false);
+        screenController.StartTransitionScreen(ScreenState.Game);
     }
 }

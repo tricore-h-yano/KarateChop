@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TutorialButtonController : MonoBehaviour
+public class GiveUpButtonController : MonoBehaviour
 {
     [SerializeField] ScreenController screenController;
     [SerializeField] Button button = default;
@@ -11,11 +11,11 @@ public class TutorialButtonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        button.onClick.AddListener(() =>OnClickTransition());
+        button.onClick.AddListener(() => OnClickTransition());
     }
 
     void OnClickTransition()
     {
-        screenController.StartTransitionScreen(ScreenState.Tutorial);
+        screenController.StartTransitionScreen(ScreenState.Title);
     }
 }

@@ -103,7 +103,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6090127756866800044}
-  - component: {fileID: 7177282137007963362}
   m_Layer: 0
   m_Name: GameSceneRoot
   m_TagString: Untagged
@@ -132,21 +131,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7177282137007963362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8236251704744526443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c936a1d023cf2e94cb6b04fe4b64136d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nowSceneObject: {fileID: 8236251704744526443}
-  nextSceneObject: {fileID: 0}
-  transitionTime: 3
 --- !u!1001 &2000980672014286335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -432,7 +416,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 317525329006794314, guid: cd9a8376674b2d9449e193f9d5ca91c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -502,7 +486,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 928601297222728645, guid: cd9a8376674b2d9449e193f9d5ca91c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -657,7 +641,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 1674554843045976039, guid: cd9a8376674b2d9449e193f9d5ca91c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -867,7 +851,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 2631784620423712013, guid: cd9a8376674b2d9449e193f9d5ca91c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1097,7 +1081,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 3828364992399612316, guid: cd9a8376674b2d9449e193f9d5ca91c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1197,7 +1181,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 4353958355726283262, guid: cd9a8376674b2d9449e193f9d5ca91c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1497,7 +1481,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 6086240302666679097, guid: cd9a8376674b2d9449e193f9d5ca91c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1547,7 +1531,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 6270858525414878925, guid: cd9a8376674b2d9449e193f9d5ca91c1,
         type: 3}
       propertyPath: playerController
@@ -1942,7 +1926,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 7531952700683535080, guid: cd9a8376674b2d9449e193f9d5ca91c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2107,7 +2091,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 8325303722142451468, guid: cd9a8376674b2d9449e193f9d5ca91c1,
         type: 3}
       propertyPath: playerController
@@ -2412,7 +2396,7 @@ PrefabInstance:
         type: 3}
       propertyPath: breakTileCounter
       value: 
-      objectReference: {fileID: 815054792172259628}
+      objectReference: {fileID: 3069775849087093375}
     - target: {fileID: 3113958632215161156, guid: 431f0790415d56643845eb2d9d159f49,
         type: 3}
       propertyPath: breakCountTextMesh
@@ -2676,6 +2660,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4724965574338630836, guid: dbc2a7c52c3cc9545994eae3ddcf3d96,
+        type: 3}
+      propertyPath: breakTileText
+      value: 
+      objectReference: {fileID: 4435464649332355122}
+    - target: {fileID: 4724965574338630836, guid: dbc2a7c52c3cc9545994eae3ddcf3d96,
+        type: 3}
+      propertyPath: gameToResultScreenChanger
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6937746825531611111, guid: dbc2a7c52c3cc9545994eae3ddcf3d96,
         type: 3}
       propertyPath: breakTileText
@@ -2685,7 +2679,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbc2a7c52c3cc9545994eae3ddcf3d96, type: 3}
 --- !u!224 &6339941471393942162 stripped
@@ -2700,14 +2694,14 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7712550672231538379}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &815054792172259628 stripped
+--- !u!114 &3069775849087093375 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6937746825531611111, guid: dbc2a7c52c3cc9545994eae3ddcf3d96,
+  m_CorrespondingSourceObject: {fileID: 4724965574338630836, guid: dbc2a7c52c3cc9545994eae3ddcf3d96,
     type: 3}
   m_PrefabInstance: {fileID: 7712550672231538379}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5073231457379158660}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6f0270107ec7e841b01d021684f5636, type: 3}
   m_Name: 
@@ -2859,7 +2853,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 1608839588958644096, guid: ef96af57238497448983245ecf6475f7,
         type: 3}
       propertyPath: breakPoint
@@ -2880,17 +2874,17 @@ PrefabInstance:
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 4938145366082177011, guid: ef96af57238497448983245ecf6475f7,
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     - target: {fileID: 8960559409808501727, guid: ef96af57238497448983245ecf6475f7,
         type: 3}
       propertyPath: gameToResultScreenChanger
       value: 
-      objectReference: {fileID: 7177282137007963362}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef96af57238497448983245ecf6475f7, type: 3}
 --- !u!224 &8236251703871685268 stripped

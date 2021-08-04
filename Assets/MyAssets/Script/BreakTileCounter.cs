@@ -7,7 +7,7 @@ public class BreakTileCounter : MonoBehaviour
 {
     // 割れた瓦を表示するクラス
     [SerializeField] GameObject breakTileText = default;
-    [SerializeField] GameToResultScreenChanger gameToResultScreenChanger = default;
+    [SerializeField] ScreenController screenController = default;
 
     // 割れた瓦の枚数カウント
     int breakTileCount;
@@ -22,7 +22,7 @@ public class BreakTileCounter : MonoBehaviour
     void Start()
     {
         breakTileCount = 0;
-        gameToResultScreenChanger.SetEndGameAction(PriorityOrder.Normal, ResetOnEndGame);
+        screenController.SetEndGameAction(PriorityOrder.Normal, ResetOnEndGame);
     }
 
     /// <summary>

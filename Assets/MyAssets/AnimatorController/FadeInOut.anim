@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FadeOutIn
+  m_Name: FadeInOut
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -51,7 +51,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Alpha
-    path: FadeInOut/Image
+    path: FadeInOut
     classID: 225
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -63,7 +63,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 4211652337
+      path: 2164027514
       attribute: 1574349066
       script: {fileID: 0}
       typeID: 225
@@ -125,7 +125,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Alpha
-    path: FadeInOut/Image
+    path: FadeInOut
     classID: 225
     script: {fileID: 0}
   m_EulerEditorCurves: []
