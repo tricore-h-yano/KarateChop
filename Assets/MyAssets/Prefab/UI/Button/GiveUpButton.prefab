@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1166138322433985044}
   - component: {fileID: 1166138322433985045}
   - component: {fileID: 1166138322433985046}
-  - component: {fileID: 479737561145908795}
+  - component: {fileID: 2913585900304071639}
   m_Layer: 5
   m_Name: GiveUpButton
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &479737561145908795
+--- !u!114 &2913585900304071639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,12 +129,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1166138322433985040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56dac7d808b60fd43941586dd6dc23be, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a9fa6554a981644782f707731f67d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   screenController: {fileID: 0}
   button: {fileID: 1166138322433985046}
-  screenAnimator: {fileID: 0}
+  screenState: 0
 --- !u!1 &1166138323362574328
 GameObject:
   m_ObjectHideFlags: 0

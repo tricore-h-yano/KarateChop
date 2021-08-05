@@ -35,6 +35,7 @@ public class ScreenController : MonoBehaviour
     [SerializeField] GameObject tutorialScene = default;
     [SerializeField] GameObject gameScene = default;
     [SerializeField] GameObject resultScene = default;
+    [SerializeField] TileTypeSelector tileTypeSelector = default;
 
     // 遷移に使用するステータス変数
     ScreenState nowScreenState;
@@ -43,6 +44,8 @@ public class ScreenController : MonoBehaviour
     // 遷移する時間
     [SerializeField] float transitionTime = default;
     [SerializeField] float fadeOutTime = default;
+
+    const string FadeOutPlay = "Play";
 
     // ゲーム終了時アクション
     Dictionary<PriorityOrder, Action> endGameActions = new Dictionary<PriorityOrder, Action>();
@@ -68,7 +71,7 @@ public class ScreenController : MonoBehaviour
         nextScreenState = screenState;
         if(nextScreenState != nowScreenState)
         {
-            StartCoroutine("FadeOut");
+            StartCoroutine(FadeOut());
         }
     }
 
@@ -77,21 +80,23 @@ public class ScreenController : MonoBehaviour
     /// </summary>
     void SelectTransitionScreen()
     {
-        if (nextScreenState == ScreenState.Tutorial)
+        switch (nextScreenState)
         {
-            TransitionTutorial();
-        }
-        else if (nextScreenState == ScreenState.Game)
-        {
-            TransitionGame();
-        }
-        else if (nextScreenState == ScreenState.Title)
-        {
-            TransitionTitle();
-        }
-        else if(nextScreenState == ScreenState.Result)
-        {
-            TransitionResult();
+            case ScreenState.Title:
+                SetScreenObject();
+                break;
+            case ScreenState.Tutorial:
+                SetScreenObject();
+                break;
+            case ScreenState.Game:
+                GiveUpOnGameReset();
+                tileTypeSelector.SelectColor();
+                SetScreenObject();
+                break;
+            case ScreenState.Result:
+                GameToResult();
+                SetScreenObject();
+                break;
         }
     }
 
@@ -101,59 +106,21 @@ public class ScreenController : MonoBehaviour
     /// <returns>待つ時間</returns>
     IEnumerator FadeOut()
     {
-        sceneControllerAnimator.Play("Play");
+        sceneControllerAnimator.Play(FadeOutPlay);
         yield return new WaitForSeconds(fadeOutTime);
         SelectTransitionScreen();
         nowScreenState = nextScreenState;
     }
 
     /// <summary>
-    /// タイトルシーンに遷移する時のオブジェクトの切り替え
+    /// ステータスに応じたオブジェクトの切り替えを行う
     /// </summary>
-    void TransitionTitle()
+    void SetScreenObject()
     {
-        titleScene.SetActive(true);
-        if(nowScreenState == ScreenState.Game)
-        {
-            GiveUpOnGameReset();
-            gameScene.SetActive(false);
-        }
-        else if(nowScreenState == ScreenState.Tutorial)
-        {
-            tutorialScene.SetActive(false);
-        }
-        else if(nowScreenState == ScreenState.Result)
-        {
-            resultScene.SetActive(false);
-        }
-    }
-
-    /// <summary>
-    /// チュートリアルシーンに遷移する時のオブジェクトの切り替え
-    /// </summary>
-    void TransitionTutorial()
-    {
-        tutorialScene.SetActive(true);
-        titleScene.SetActive(false);
-    }
-
-    /// <summary>
-    /// ゲームシーンに遷移する時のオブジェクトの切り替え
-    /// </summary>
-    void TransitionGame()
-    {
-        gameScene.SetActive(true);
-        titleScene.SetActive(false);
-    }
-
-    /// <summary>
-    /// リザルトシーンに遷移する時のオブジェクトの切り替え
-    /// </summary>
-    void TransitionResult()
-    {
-        GameToResult();
-        resultScene.SetActive(true);
-        gameScene.SetActive(false);
+        titleScene.SetActive(nextScreenState == ScreenState.Title);
+        tutorialScene.SetActive(nextScreenState == ScreenState.Tutorial);
+        gameScene.SetActive(nextScreenState == ScreenState.Game);
+        resultScene.SetActive(nextScreenState == ScreenState.Result);
     }
 
     /// <summary>
