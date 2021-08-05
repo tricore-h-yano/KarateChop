@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 2304042366902168391}
   - component: {fileID: 7702712516305067818}
   - component: {fileID: 4645265460686471673}
+  - component: {fileID: 7483315222094947348}
   m_Layer: 0
   m_Name: TitleText (TMP)
   m_TagString: Untagged
@@ -171,6 +172,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &7483315222094947348
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924764261908405499}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &9162532699430099264
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +195,7 @@ GameObject:
   - component: {fileID: 891640469355895171}
   - component: {fileID: 4340710038644804902}
   - component: {fileID: 6442368335612628160}
+  - component: {fileID: 8198804719679378488}
   m_Layer: 0
   m_Name: ScoreText (TMP) (1)
   m_TagString: Untagged
@@ -305,3 +319,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &8198804719679378488
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9162532699430099264}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
