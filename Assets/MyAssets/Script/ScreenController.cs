@@ -45,7 +45,7 @@ public class ScreenController : MonoBehaviour
     [SerializeField] float transitionTime = default;
     [SerializeField] float fadeOutTime = default;
 
-    const string FadeOutPlay = "Play";
+    const string PlayFadeOutAnimation = "Play";
 
     // ゲーム終了時アクション
     Dictionary<PriorityOrder, Action> endGameActions = new Dictionary<PriorityOrder, Action>();
@@ -106,7 +106,7 @@ public class ScreenController : MonoBehaviour
     /// <returns>待つ時間</returns>
     IEnumerator FadeOut()
     {
-        sceneControllerAnimator.Play(FadeOutPlay);
+        sceneControllerAnimator.Play(PlayFadeOutAnimation);
         yield return new WaitForSeconds(fadeOutTime);
         SelectTransitionScreen();
         nowScreenState = nextScreenState;
