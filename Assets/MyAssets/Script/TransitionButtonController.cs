@@ -25,17 +25,6 @@ public class TransitionButtonController : MonoBehaviour
     /// </summary>
     void OnClickTransition()
     {
-        switch (screenState)
-        {
-            case ScreenState.Title:
-                screenController.StartTransitionScreen(ScreenState.Title);
-                break;
-            case ScreenState.Tutorial:
-                screenController.StartTransitionScreen(ScreenState.Tutorial);
-                break;
-            case ScreenState.Game:
-                screenController.StartTransitionScreen(ScreenState.Game);
-                break;
-        }
+        screenController.StartTransitionScreen(screenState);
     }
 }
