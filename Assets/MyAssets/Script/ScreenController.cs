@@ -169,6 +169,8 @@ public class ScreenController : MonoBehaviour
     /// </summary>
     public void GiveUpOnGameReset()
     {
+        isGameEnd = false;
+
         foreach (var pair in endGameActions)
         {
             if(pair.Key == PriorityOrder.Slow)
