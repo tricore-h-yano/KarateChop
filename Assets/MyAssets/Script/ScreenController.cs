@@ -42,8 +42,8 @@ public class ScreenController : MonoBehaviour
     ScreenState nextScreenState;
 
     // 遷移する時間
-    [SerializeField] float transitionTime = default;
-    [SerializeField] float fadeOutTime = default;
+    [SerializeField] float transitionTime = 1.0f;
+    [SerializeField] float fadeOutTime = 0.5f;
 
     const string PlayFadeOutAnimation = "Play";
 
