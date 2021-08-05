@@ -7,7 +7,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] BreakTileCounter breakTileCounter = default;
-    [SerializeField] GameToResultScreenChanger gameToResultScreenChanger = default;
+    [SerializeField] ScreenController screenController = default;
     [SerializeField] TileTypeSelector tileTypeSelector = default;
 
     // スコアテキスト
@@ -99,8 +99,8 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         nowScore = 0;
-        gameToResultScreenChanger.SetEndGameAction(PriorityOrder.Fast, GetCounterScore);
-        gameToResultScreenChanger.SetEndGameAction(PriorityOrder.Normal, ScoreUpdate);
+        screenController.SetEndGameAction(PriorityOrder.Fast, GetCounterScore);
+        screenController.SetEndGameAction(PriorityOrder.Normal, ScoreUpdate);
     }
 
     /// <summary>

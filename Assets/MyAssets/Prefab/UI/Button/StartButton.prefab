@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2234402267073819057}
   - component: {fileID: 5194638226936243355}
   - component: {fileID: 625591182837734378}
-  - component: {fileID: 6223155840600849539}
   - component: {fileID: 1689180426192622998}
+  - component: {fileID: 5460999955944832380}
   m_Layer: 0
   m_Name: StartButton
   m_TagString: Untagged
@@ -120,45 +120,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5194638226936243355}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6223155840600849539}
-        m_MethodName: SelectColor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &6223155840600849539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617596250657355411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1cbdc7c0ab6c5d40938d10d3630d77d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjectRoot: {fileID: 0}
-  normalTileObjectRoot: {fileID: 0}
-  goldTileObjectRoot: {fileID: 0}
-  randomThreshold: 0.8
+      m_Calls: []
 --- !u!95 &1689180426192622998
 Animator:
   serializedVersion: 3
@@ -178,6 +140,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5460999955944832380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617596250657355411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a9fa6554a981644782f707731f67d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenController: {fileID: 0}
+  button: {fileID: 625591182837734378}
+  screenState: 2
 --- !u!1 &6352631901280125766
 GameObject:
   m_ObjectHideFlags: 0

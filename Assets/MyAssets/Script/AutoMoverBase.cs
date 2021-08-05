@@ -14,7 +14,7 @@ public class AutoMoverBase : MonoBehaviour
     [SerializeField] PlayerHitChecker playerHitChecker = default;
     [SerializeField] PlayerController playerController = default;
     [SerializeField] RectTransform myRectTransform = default;
-    [SerializeField] GameToResultScreenChanger gameToResultScreenChanger = default;
+    [SerializeField] ScreenController screenController = default;
 
     // 初期ポジションを保存する
     Vector3 keepPosition;
@@ -37,7 +37,7 @@ public class AutoMoverBase : MonoBehaviour
     /// <param name="action">セットするAction</param>
     public void SetScreenChangerAction(Action action)
     {
-        gameToResultScreenChanger.SetEndGameAction(PriorityOrder.Normal, action);
+        screenController.SetEndGameAction(PriorityOrder.Slow, action);
     }
 
     /// <summary>
@@ -48,7 +48,7 @@ public class AutoMoverBase : MonoBehaviour
         isMove = false;
         receivedMoveSpeed = 0.0f;
         keepPosition = myRectTransform.position;
-        gameToResultScreenChanger.SetEndGameAction(PriorityOrder.Normal, ResetOnEndGame);
+        screenController.SetEndGameAction(PriorityOrder.Slow, ResetOnEndGame);
     }
 
     /// <summary>
@@ -75,7 +75,7 @@ public class AutoMoverBase : MonoBehaviour
             if (receivedMoveSpeed <= gameEndSpeed)
             {
                 receivedMoveSpeed = 0.0f;
-                gameToResultScreenChanger.StartGameEndCoroutine();
+                screenController.StartGameEndCoroutine();
             }
         }
         else

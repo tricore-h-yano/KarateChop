@@ -9,10 +9,7 @@ public class TapScreenChanger : MonoBehaviour
 {
     // ジェスチャークラス
     [SerializeField] TapGesture tapGesture = default;
-    // 今のシーンのオブジェクト
-    [SerializeField] GameObject nowSceneObject = default;
-    // 次のシーンのオブジェクト
-    [SerializeField] GameObject nextSceneObject = default;
+    [SerializeField] ScreenController screenController = default;
 
     /// <summary>
     /// 有効化されたときの処理
@@ -39,7 +36,6 @@ public class TapScreenChanger : MonoBehaviour
     /// <param name="e">イベント</param>
     void OnTappedSceneChange(object sender, EventArgs e)
     {
-        nowSceneObject.SetActive(false);
-        nextSceneObject.SetActive(true);
+        screenController.StartTransitionScreen(ScreenState.Title);
     }
 }

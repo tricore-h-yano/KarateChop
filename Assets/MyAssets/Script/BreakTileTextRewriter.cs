@@ -20,7 +20,6 @@ public class BreakTileTextRewriter : MonoBehaviour
     /// </summary>
     void Update()
     {
-        string count = breakTileCounter.BreakTileCount.ToString();
-        breakCountTextMesh.text = count + Sheet;
+        breakCountTextMesh.text = breakTileCounter.BreakTileCount + Sheet;
     }
 }
