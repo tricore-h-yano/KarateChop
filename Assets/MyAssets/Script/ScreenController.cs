@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// 画面状態のステータス
+/// </summary>
 public enum ScreenState
 {
     Title = 0,
@@ -22,44 +25,57 @@ public enum PriorityOrder
     Slow = 3
 }
 
+/// <summary>
+/// 画面遷移を管理するクラス
+/// </summary>
 public class ScreenController : MonoBehaviour
 {
-    [SerializeField] Animator sceneController;
-    [SerializeField] GameObject titleScene;
-    [SerializeField] GameObject tutorialScene;
-    [SerializeField] GameObject gameScene;
-    [SerializeField] GameObject resultScene;
-    [SerializeField] ScreenState nowScreenState = default;
-    
+    [SerializeField] Animator sceneControllerAnimator = default;
+    [SerializeField] GameObject titleScene = default;
+    [SerializeField] GameObject tutorialScene = default;
+    [SerializeField] GameObject gameScene = default;
+    [SerializeField] GameObject resultScene = default;
+
+    // 遷移に使用するステータス変数
+    ScreenState nowScreenState;
     ScreenState nextScreenState;
 
     // 遷移する時間
-    [SerializeField] float transitionTime;
+    [SerializeField] float transitionTime = default;
+    [SerializeField] float fadeOutTime = default;
 
     // ゲーム終了時アクション
     Dictionary<PriorityOrder, Action> endGameActions = new Dictionary<PriorityOrder, Action>();
 
+    bool isGameEnd;
 
+    /// <summary>
+    /// 起動時の処理
+    /// </summary>
     void Awake()
     {
+        nowScreenState = ScreenState.Title;
         nextScreenState = nowScreenState;
+        isGameEnd = false;
     }
 
-    void Update()
-    {
-        if(nowScreenState != nextScreenState)
-        {
-            StartCoroutine("FadeOut");
-            nowScreenState = nextScreenState;
-        }
-    }
-
+    /// <summary>
+    /// 次の画面のステータスをもらい遷移を開始させる
+    /// </summary>
+    /// <param name="screenState">次の画面のステータス</param>
     public void StartTransitionScreen(ScreenState screenState)
     {
         nextScreenState = screenState;
+        if(nextScreenState != nowScreenState)
+        {
+            StartCoroutine("FadeOut");
+        }
     }
 
-    void TransitionScreen()
+    /// <summary>
+    /// 画面遷移処理
+    /// </summary>
+    void SelectTransitionScreen()
     {
         if (nextScreenState == ScreenState.Tutorial)
         {
@@ -79,52 +95,66 @@ public class ScreenController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// フェードインアウトのコルーチン
+    /// </summary>
+    /// <returns>待つ時間</returns>
     IEnumerator FadeOut()
     {
-        sceneController.Play("Play");
-        yield return new WaitForSeconds(0.5f);
-        TransitionScreen();
+        sceneControllerAnimator.Play("Play");
+        yield return new WaitForSeconds(fadeOutTime);
+        SelectTransitionScreen();
         nowScreenState = nextScreenState;
     }
 
+    /// <summary>
+    /// タイトルシーンに遷移する時のオブジェクトの切り替え
+    /// </summary>
     void TransitionTitle()
     {
-        Debug.Log("TransitionTitle");
         titleScene.SetActive(true);
-        tutorialScene.SetActive(false);
-        gameScene.SetActive(false);
-        resultScene.SetActive(false);
+        if(nowScreenState == ScreenState.Game)
+        {
+            GiveUpOnGameReset();
+            gameScene.SetActive(false);
+        }
+        else if(nowScreenState == ScreenState.Tutorial)
+        {
+            tutorialScene.SetActive(false);
+        }
+        else if(nowScreenState == ScreenState.Result)
+        {
+            resultScene.SetActive(false);
+        }
     }
 
+    /// <summary>
+    /// チュートリアルシーンに遷移する時のオブジェクトの切り替え
+    /// </summary>
     void TransitionTutorial()
     {
-        Debug.Log("TransitionTutorial");
         tutorialScene.SetActive(true);
         titleScene.SetActive(false);
-        gameScene.SetActive(false);
-        resultScene.SetActive(false);
     }
 
+    /// <summary>
+    /// ゲームシーンに遷移する時のオブジェクトの切り替え
+    /// </summary>
     void TransitionGame()
     {
-        Debug.Log("TransitionGame");
         gameScene.SetActive(true);
         titleScene.SetActive(false);
-        tutorialScene.SetActive(false);
-        resultScene.SetActive(false);
     }
 
+    /// <summary>
+    /// リザルトシーンに遷移する時のオブジェクトの切り替え
+    /// </summary>
     void TransitionResult()
     {
-        Debug.Log("TransitionResult");
         GameToResult();
         resultScene.SetActive(true);
         gameScene.SetActive(false);
-        titleScene.SetActive(false);
-        tutorialScene.SetActive(false);
     }
-
-
 
     /// <summary>
     /// ゲーム終了時のアクションをセット
@@ -149,7 +179,11 @@ public class ScreenController : MonoBehaviour
     /// </summary>
     public void StartGameEndCoroutine()
     {
-        StartCoroutine(GameEndCoroutine());
+        if(!isGameEnd)
+        {
+            StartCoroutine(GameEndCoroutine());
+            isGameEnd = true;
+        }
     }
 
     /// <summary>
@@ -164,6 +198,20 @@ public class ScreenController : MonoBehaviour
     }
 
     /// <summary>
+    /// ゲーム画面からギブアップボタンでタイトル画面へ遷移する際に行う処理
+    /// </summary>
+    public void GiveUpOnGameReset()
+    {
+        foreach (var pair in endGameActions)
+        {
+            if(pair.Key == PriorityOrder.Slow)
+            {
+                pair.Value.Invoke();
+            }
+        }
+    }
+
+    /// <summary>
     /// ゲーム終了コルーチン
     /// </summary>
     /// <returns>待機時間</returns>
@@ -172,5 +220,4 @@ public class ScreenController : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         StartTransitionScreen(ScreenState.Result);
     }
-
 }

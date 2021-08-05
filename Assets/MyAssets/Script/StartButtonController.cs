@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// スタートボタンを押した時に画面遷移を開始させるクラス
+/// </summary>
 public class StartButtonController : MonoBehaviour
 {
     [SerializeField] TileTypeSelector tileTypeSelector;
@@ -17,6 +20,9 @@ public class StartButtonController : MonoBehaviour
         button.onClick.AddListener(() => OnClickTransition());
     }
 
+    /// <summary>
+    /// ボタンが押された時画面を遷移を開始する
+    /// </summary>
     void OnClickTransition()
     {
         tileTypeSelector.SelectColor();

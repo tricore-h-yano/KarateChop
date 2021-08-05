@@ -260,13 +260,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3431d829c9a0734bb1338f88a53134e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneController: {fileID: 6782087561192283536}
+  sceneControllerAnimator: {fileID: 6782087561192283536}
   titleScene: {fileID: 4555377296817605674}
   tutorialScene: {fileID: 2077989335777960874}
   gameScene: {fileID: 2693378494998411637}
   resultScene: {fileID: 1319307335317461451}
-  nowScreenState: 0
-  transitionTime: 0
+  transitionTime: 3
+  fadeOutTime: 0.5
 --- !u!1001 &2476605505140712818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1405,7 +1405,7 @@ PrefabInstance:
     - target: {fileID: 19420579527008308, guid: 4907225511a370949ad2a953bce5a597,
         type: 3}
       propertyPath: offset
-      value: 162.5
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 90235573696216644, guid: 4907225511a370949ad2a953bce5a597,
         type: 3}
@@ -2490,7 +2490,7 @@ PrefabInstance:
     - target: {fileID: 5075885653159262399, guid: 4907225511a370949ad2a953bce5a597,
         type: 3}
       propertyPath: offset
-      value: 162.5
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 5198887536661470817, guid: 4907225511a370949ad2a953bce5a597,
         type: 3}

@@ -22,7 +22,7 @@ public class BreakTileCounter : MonoBehaviour
     void Start()
     {
         breakTileCount = 0;
-        screenController.SetEndGameAction(PriorityOrder.Normal, ResetOnEndGame);
+        screenController.SetEndGameAction(PriorityOrder.Slow, ResetOnEndGame);
     }
 
     /// <summary>

@@ -221,6 +221,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &733639878 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6782087561192283536, guid: 89116517d9e399545953c2a16e3dde80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1003112903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1003112903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -287,6 +293,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251135563612914593, guid: 89116517d9e399545953c2a16e3dde80,
+        type: 3}
+      propertyPath: offset
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 1270345806438226798, guid: 89116517d9e399545953c2a16e3dde80,
         type: 3}
@@ -373,6 +384,11 @@ PrefabInstance:
       propertyPath: screenState
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3236909572267825189, guid: 89116517d9e399545953c2a16e3dde80,
+        type: 3}
+      propertyPath: sceneControllerAnimator
+      value: 
+      objectReference: {fileID: 733639878}
     - target: {fileID: 3458400563915597951, guid: 89116517d9e399545953c2a16e3dde80,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -607,6 +623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6298628067741178666, guid: 89116517d9e399545953c2a16e3dde80,
+        type: 3}
+      propertyPath: offset
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 6362028943385126614, guid: 89116517d9e399545953c2a16e3dde80,
         type: 3}

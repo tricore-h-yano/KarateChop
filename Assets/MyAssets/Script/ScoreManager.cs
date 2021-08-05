@@ -116,7 +116,6 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     void ScoreUpdate()
     {
-        Debug.Log("ScoreUpdate");
         if (nowScore > normalHighScore && !tileTypeSelector.IsGold)
         {
             normalHighScore = nowScore;

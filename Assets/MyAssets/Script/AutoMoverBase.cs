@@ -37,7 +37,7 @@ public class AutoMoverBase : MonoBehaviour
     /// <param name="action">セットするAction</param>
     public void SetScreenChangerAction(Action action)
     {
-        screenController.SetEndGameAction(PriorityOrder.Normal, action);
+        screenController.SetEndGameAction(PriorityOrder.Slow, action);
     }
 
     /// <summary>
@@ -48,7 +48,7 @@ public class AutoMoverBase : MonoBehaviour
         isMove = false;
         receivedMoveSpeed = 0.0f;
         keepPosition = myRectTransform.position;
-        screenController.SetEndGameAction(PriorityOrder.Normal, ResetOnEndGame);
+        screenController.SetEndGameAction(PriorityOrder.Slow, ResetOnEndGame);
     }
 
     /// <summary>

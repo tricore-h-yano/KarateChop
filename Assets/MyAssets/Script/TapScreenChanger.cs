@@ -9,7 +9,6 @@ public class TapScreenChanger : MonoBehaviour
 {
     // ジェスチャークラス
     [SerializeField] TapGesture tapGesture = default;
-
     [SerializeField] ScreenController screenController = default;
 
     /// <summary>
