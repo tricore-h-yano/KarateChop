@@ -8,15 +8,17 @@ public class PlayerController : MonoBehaviour
 {
     // ジェスチャークラス
     [SerializeField] ScreenTransformGesture screenTransformGesture = default;
+
     // 瓦を割るためのコライダー
     [SerializeField] GameObject tileBreakCollider = default;
     [SerializeField] ScreenController screenController = default;
+
     // ポインターの場所を取得する時間
-    [SerializeField] float pointerGetTime = default;
-    [SerializeField] GameObject minMovingLimitPointX = default;
-    [SerializeField] GameObject maxMovingLimitPointX = default;
-    [SerializeField] GameObject minMovingLimitPointY = default;
-    [SerializeField] GameObject maxMovingLimitPointY = default;
+    [SerializeField] float pointerGetTime = 30.0f;
+
+    // 移動制限パラメーター
+    [SerializeField] Vector2 movingLimitOffset = default;
+    [SerializeField] GameObject movingLimitPoint = default;
     [SerializeField] RectTransform myRectTransform = default;
 
     // ドラッグ開始位置
@@ -43,6 +45,9 @@ public class PlayerController : MonoBehaviour
         isMove = false;
     }
 
+    /// <summary>
+    /// 更新処理
+    /// </summary>
     void Update()
     {
         MovingLimit();
@@ -135,8 +140,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void MovingLimit()
     {
-        float limitedX = Mathf.Clamp(myRectTransform.transform.position.x, minMovingLimitPointX.transform.position.x, maxMovingLimitPointX.transform.position.x);
-        float limitedY = Mathf.Clamp(myRectTransform.transform.position.y, minMovingLimitPointY.transform.position.y, maxMovingLimitPointY.transform.position.y);
+        float limitedX = Mathf.Clamp(myRectTransform.transform.position.x, movingLimitPoint.transform.position.x - movingLimitOffset.x, movingLimitPoint.transform.position.x + movingLimitOffset.x);
+        float limitedY = Mathf.Clamp(myRectTransform.transform.position.y, movingLimitPoint.transform.position.y, movingLimitPoint.transform.position.y + movingLimitOffset.y);
         myRectTransform.transform.position = new Vector3(limitedX, limitedY, myRectTransform.transform.position.z);
     }
 

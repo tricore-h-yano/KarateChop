@@ -4787,9 +4787,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1608839588958644096, guid: ef96af57238497448983245ecf6475f7,
         type: 3}
+      propertyPath: movingLimitPoint
+      value: 
+      objectReference: {fileID: 6803397241417111598}
+    - target: {fileID: 1608839588958644096, guid: ef96af57238497448983245ecf6475f7,
+        type: 3}
+      propertyPath: movingLimitOffset
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1608839588958644096, guid: ef96af57238497448983245ecf6475f7,
+        type: 3}
       propertyPath: tileBreakCollider
       value: 
       objectReference: {fileID: 5073231457379158660}
+    - target: {fileID: 1608839588958644096, guid: ef96af57238497448983245ecf6475f7,
+        type: 3}
+      propertyPath: movingLimitOffset.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1608839588958644096, guid: ef96af57238497448983245ecf6475f7,
+        type: 3}
+      propertyPath: movingLimitOffset.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 1608839588958644096, guid: ef96af57238497448983245ecf6475f7,
         type: 3}
       propertyPath: maxMovingLimitPointX
