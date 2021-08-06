@@ -252,7 +252,7 @@ PrefabInstance:
     - target: {fileID: 2321003776733419057, guid: 3511c2780ec3921409707226bfc23d0c,
         type: 3}
       propertyPath: offset
-      value: 142
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2402839882842351939, guid: 3511c2780ec3921409707226bfc23d0c,
         type: 3}

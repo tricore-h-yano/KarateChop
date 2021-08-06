@@ -46,7 +46,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -300}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5082204692389583087
@@ -91,7 +91,7 @@ MonoBehaviour:
   playerHitChecker: {fileID: 0}
   playerController: {fileID: 0}
   myRectTransform: {fileID: 5082204692389583086}
-  gameToResultScreenChanger: {fileID: 0}
+  screenController: {fileID: 0}
   tileObjects:
   - {fileID: 6030448493130989318}
   - {fileID: 7386689986438862962}
