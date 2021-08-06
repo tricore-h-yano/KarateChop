@@ -13,12 +13,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] ScreenController screenController = default;
     // ポインターの場所を取得する時間
     [SerializeField] float pointerGetTime = default;
+    [SerializeField] GameObject minMovingLimitPointX = default;
+    [SerializeField] GameObject maxMovingLimitPointX = default;
+    [SerializeField] GameObject minMovingLimitPointY = default;
+    [SerializeField] GameObject maxMovingLimitPointY = default;
+    [SerializeField] RectTransform myRectTransform = default;
 
     // ドラッグ開始位置
     Vector2 startPosition;
     // ドラッグ終了位置
     Vector2 endPosition;
 
+    bool isMove;
     // 時間計測
     float time;
     // 瓦に渡す速度
@@ -34,6 +40,12 @@ public class PlayerController : MonoBehaviour
         startPosition = new Vector2(0, 0);
         endPosition = new Vector2(0, 0);
         speed = 0.0f;
+        isMove = false;
+    }
+
+    void Update()
+    {
+        MovingLimit();
     }
 
     /// <summary>
@@ -107,7 +119,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// 瓦に当たりドラッグが終了したときの処理
+    /// 瓦に当たり強制的にドラッグが終了したときの処理
     /// </summary>
     /// <param name="sender">送信者となるオブジェクト</param>
     /// <param name="e">イベント</param>
@@ -116,6 +128,16 @@ public class PlayerController : MonoBehaviour
         endPosition = screenTransformGesture.ScreenPosition;
         SpeedCalculation();
         time = 0.0f;
+    }
+
+    /// <summary>
+    /// 移動制限処理
+    /// </summary>
+    void MovingLimit()
+    {
+        float limitedX = Mathf.Clamp(myRectTransform.transform.position.x, minMovingLimitPointX.transform.position.x, maxMovingLimitPointX.transform.position.x);
+        float limitedY = Mathf.Clamp(myRectTransform.transform.position.y, minMovingLimitPointY.transform.position.y, maxMovingLimitPointY.transform.position.y);
+        myRectTransform.transform.position = new Vector3(limitedX, limitedY, myRectTransform.transform.position.z);
     }
 
     /// <summary>

@@ -8,9 +8,9 @@ using UnityEngine;
 public class AutoMoverBase : MonoBehaviour
 {
     // 最大速度
-    [SerializeField] float maxSpeed = default;
+    [SerializeField] float maxSpeed = 50.0f;
     // ゲームを終了するスピードの指標
-    [SerializeField] float gameEndSpeed = default;
+    [SerializeField] float gameEndSpeed = 0.05f;
     [SerializeField] PlayerHitChecker playerHitChecker = default;
     [SerializeField] PlayerController playerController = default;
     [SerializeField] RectTransform myRectTransform = default;

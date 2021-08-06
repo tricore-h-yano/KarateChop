@@ -43,7 +43,7 @@ public class PlayerHitChecker : MonoBehaviour
     /// <param name="other">触れたオブジェクトのコライダー</param>
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag(HitMovePointTag))
+        if (other.gameObject.CompareTag(HitMovePointTag))
         {
             isAutoMove = true;
             transformer.enabled = false;

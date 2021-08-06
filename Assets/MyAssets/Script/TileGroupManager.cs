@@ -11,7 +11,7 @@ public class TileGroupManager : MonoBehaviour
     // 一番最後尾の瓦グループオブジェクト
     [SerializeField] GameObject lastGroup = default;
     // ポジションリセット時の間隔
-    [SerializeField] float offset = default;
+    [SerializeField] float offset = 232.5f;
     // 生成されたときに最後尾のグループを保存する
     GameObject keepLastGroup = default;
 
