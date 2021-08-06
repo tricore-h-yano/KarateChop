@@ -11,14 +11,14 @@ public class PlayerController : MonoBehaviour
 
     // 瓦を割るためのコライダー
     [SerializeField] GameObject tileBreakCollider = default;
+    [SerializeField] PlayerHitChecker playerHitChecker = default;
     [SerializeField] ScreenController screenController = default;
 
     // ポインターの場所を取得する時間
     [SerializeField] float pointerGetTime = 30.0f;
 
     // 移動制限パラメーター
-    [SerializeField] Vector2 movingLimitOffset = default;
-    [SerializeField] GameObject movingLimitPoint = default;
+    [SerializeField] RectTransform movingLimitPoint = default;
     [SerializeField] RectTransform myRectTransform = default;
 
     // ドラッグ開始位置
@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     // ドラッグ終了位置
     Vector2 endPosition;
 
-    bool isMove;
     // 時間計測
     float time;
     // 瓦に渡す速度
@@ -42,7 +41,6 @@ public class PlayerController : MonoBehaviour
         startPosition = new Vector2(0, 0);
         endPosition = new Vector2(0, 0);
         speed = 0.0f;
-        isMove = false;
     }
 
     /// <summary>
@@ -50,7 +48,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        MovingLimit();
+        if(!playerHitChecker.IsAutoMove)
+        {
+            MovingLimit();
+        }
     }
 
     /// <summary>
@@ -140,9 +141,12 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void MovingLimit()
     {
-        float limitedX = Mathf.Clamp(myRectTransform.transform.position.x, movingLimitPoint.transform.position.x - movingLimitOffset.x, movingLimitPoint.transform.position.x + movingLimitOffset.x);
-        float limitedY = Mathf.Clamp(myRectTransform.transform.position.y, movingLimitPoint.transform.position.y, movingLimitPoint.transform.position.y + movingLimitOffset.y);
+        Vector3 worldHandPosition = movingLimitPoint.transform.TransformPoint(movingLimitPoint.rect.size / 4.0f);
+        float limitedX = Mathf.Clamp(myRectTransform.transform.position.x, -worldHandPosition.x, worldHandPosition.x);
+        float limitedY = Mathf.Clamp(myRectTransform.transform.position.y, -worldHandPosition.y, worldHandPosition.y);
         myRectTransform.transform.position = new Vector3(limitedX, limitedY, myRectTransform.transform.position.z);
+        Debug.Log(worldHandPosition.x);
+        Debug.Log(worldHandPosition.y);
     }
 
     /// <summary>
