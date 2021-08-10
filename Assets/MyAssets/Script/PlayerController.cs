@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if(!playerHitChecker.IsAutoMove)
+        if (!playerHitChecker.IsAutoMove)
         {
             MovingLimit();
         }
@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour
         // 登録を解除
         screenTransformGesture.StateChanged -= StateChangedHandle;
         screenTransformGesture.Cancelled -= CancelledHandle;
+        //transformGesture.StateChanged -= StateChangedHandle;
+        //transformGesture.Cancelled -= CancelledHandle;
     }
 
     /// <summary>
@@ -115,6 +117,7 @@ public class PlayerController : MonoBehaviour
         if (time >= pointerGetTime)
         {
             startPosition = screenTransformGesture.ScreenPosition;
+            //startPosition = transformGesture.ScreenPosition;
             time = 0.0f;
         }
 
@@ -132,6 +135,7 @@ public class PlayerController : MonoBehaviour
     void CancelledHandle(object sender, System.EventArgs e)
     {
         endPosition = screenTransformGesture.ScreenPosition;
+        //endPosition = transformGesture.ScreenPosition;
         SpeedCalculation();
         time = 0.0f;
     }
@@ -141,12 +145,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void MovingLimit()
     {
-        Vector3 worldHandPosition = movingLimitPoint.transform.TransformPoint(movingLimitPoint.rect.size / 4.0f);
-        float limitedX = Mathf.Clamp(myRectTransform.transform.position.x, -worldHandPosition.x, worldHandPosition.x);
-        float limitedY = Mathf.Clamp(myRectTransform.transform.position.y, -worldHandPosition.y, worldHandPosition.y);
-        myRectTransform.transform.position = new Vector3(limitedX, limitedY, myRectTransform.transform.position.z);
-        Debug.Log(worldHandPosition.x);
-        Debug.Log(worldHandPosition.y);
+        float limitedX = Mathf.Clamp(myRectTransform.transform.position.x, -(movingLimitPoint.rect.width / 2.0f) + movingLimitPoint.transform.position.x, (movingLimitPoint.rect.width / 2.0f) + movingLimitPoint.transform.position.x);
+        float limitedY = Mathf.Clamp(myRectTransform.transform.position.y, -(movingLimitPoint.rect.height / 2.0f) + movingLimitPoint.transform.position.y, (movingLimitPoint.rect.height / 2.0f) + movingLimitPoint.transform.position.y);
+        myRectTransform.transform.position = new Vector3(limitedX, limitedY,0.0f);        
     }
 
     /// <summary>

@@ -40,8 +40,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 400}
-  m_SizeDelta: {x: 750, y: 1334}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &205103050633755768
 BoxCollider:
@@ -159,13 +159,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenTransformGesture: {fileID: 7590700787775204592}
   tileBreakCollider: {fileID: 0}
+  playerHitChecker: {fileID: 0}
   screenController: {fileID: 0}
   pointerGetTime: 30
-  minMovingLimitPointX: {fileID: 0}
-  maxMovingLimitPointX: {fileID: 0}
-  minMovingLimitPointY: {fileID: 0}
-  maxMovingLimitPointY: {fileID: 0}
+  movingLimitPoint: {fileID: 0}
   myRectTransform: {fileID: 205103050633755766}
+  myImageRectTransform: {fileID: 0}
 --- !u!114 &8960559409808501727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +210,7 @@ RectTransform:
   m_GameObject: {fileID: 205103051040599387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 205103050633755766}
   m_RootOrder: 0
@@ -219,7 +218,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 750, y: 1334}
+  m_SizeDelta: {x: 180, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &205103051040599390
 CanvasRenderer:
