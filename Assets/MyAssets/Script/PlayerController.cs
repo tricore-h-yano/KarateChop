@@ -141,8 +141,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void MovingLimit()
     {
-        float limitedX = Mathf.Clamp(myRectTransform.transform.position.x, -(movingLimitPoint.rect.width * 0.5f) + movingLimitPoint.transform.position.x, (movingLimitPoint.rect.width * 0.5f) + movingLimitPoint.transform.position.x);
-        float limitedY = Mathf.Clamp(myRectTransform.transform.position.y, -(movingLimitPoint.rect.height * 0.5f) + movingLimitPoint.transform.position.y, (movingLimitPoint.rect.height * 0.5f) + movingLimitPoint.transform.position.y);
+        Vector3 myRectTransformPosition = new Vector3(myRectTransform.transform.position.x, myRectTransform.transform.position.y,0.0f);
+        Vector3 moveingLimitTransformPosition = new Vector3(movingLimitPoint.transform.position.x, movingLimitPoint.transform.position.y, 0.0f);
+        float limitedX = Mathf.Clamp(myRectTransformPosition.x, -(movingLimitPoint.rect.width * 0.5f) + moveingLimitTransformPosition.x, (movingLimitPoint.rect.width * 0.5f) + moveingLimitTransformPosition.x);
+        float limitedY = Mathf.Clamp(myRectTransformPosition.y, -(movingLimitPoint.rect.height * 0.5f) + moveingLimitTransformPosition.y, (movingLimitPoint.rect.height * 0.5f) + moveingLimitTransformPosition.y);
         myRectTransform.transform.position = new Vector3(limitedX, limitedY,0.0f);        
     }
 
