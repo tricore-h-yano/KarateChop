@@ -8,11 +8,18 @@ public class PlayerController : MonoBehaviour
 {
     // ジェスチャークラス
     [SerializeField] ScreenTransformGesture screenTransformGesture = default;
+
     // 瓦を割るためのコライダー
     [SerializeField] GameObject tileBreakCollider = default;
+    [SerializeField] PlayerHitChecker playerHitChecker = default;
     [SerializeField] ScreenController screenController = default;
+
     // ポインターの場所を取得する時間
-    [SerializeField] float pointerGetTime = default;
+    [SerializeField] float pointerGetTime = 30.0f;
+
+    // 移動制限パラメーター
+    [SerializeField] RectTransform movingLimitPoint = default;
+    [SerializeField] RectTransform myRectTransform = default;
 
     // ドラッグ開始位置
     Vector2 startPosition;
@@ -34,6 +41,17 @@ public class PlayerController : MonoBehaviour
         startPosition = new Vector2(0, 0);
         endPosition = new Vector2(0, 0);
         speed = 0.0f;
+    }
+
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    void Update()
+    {
+        if (!playerHitChecker.IsAutoMove)
+        {
+            MovingLimit();
+        }
     }
 
     /// <summary>
@@ -107,7 +125,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// 瓦に当たりドラッグが終了したときの処理
+    /// 瓦に当たり強制的にドラッグが終了したときの処理
     /// </summary>
     /// <param name="sender">送信者となるオブジェクト</param>
     /// <param name="e">イベント</param>
@@ -116,6 +134,18 @@ public class PlayerController : MonoBehaviour
         endPosition = screenTransformGesture.ScreenPosition;
         SpeedCalculation();
         time = 0.0f;
+    }
+
+    /// <summary>
+    /// 移動制限処理
+    /// </summary>
+    void MovingLimit()
+    {
+        Vector3 myRectTransformPosition = new Vector3(myRectTransform.transform.position.x, myRectTransform.transform.position.y,0.0f);
+        Vector3 moveingLimitTransformPosition = new Vector3(movingLimitPoint.transform.position.x, movingLimitPoint.transform.position.y, 0.0f);
+        float limitedX = Mathf.Clamp(myRectTransformPosition.x, -(movingLimitPoint.rect.width * 0.5f) + moveingLimitTransformPosition.x, (movingLimitPoint.rect.width * 0.5f) + moveingLimitTransformPosition.x);
+        float limitedY = Mathf.Clamp(myRectTransformPosition.y, -(movingLimitPoint.rect.height * 0.5f) + moveingLimitTransformPosition.y, (movingLimitPoint.rect.height * 0.5f) + moveingLimitTransformPosition.y);
+        myRectTransform.transform.position = new Vector3(limitedX, limitedY,0.0f);        
     }
 
     /// <summary>

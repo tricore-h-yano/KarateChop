@@ -66,8 +66,8 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   - {fileID: 754371193483128870}
   - {fileID: 4070114345846867989}
   lastGroup: {fileID: 5771776316253135463}
-  offset: 180
+  offset: 255
 --- !u!1001 &1041824975811870610
 PrefabInstance:
   m_ObjectHideFlags: 0
