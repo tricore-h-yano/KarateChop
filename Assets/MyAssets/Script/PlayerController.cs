@@ -89,8 +89,6 @@ public class PlayerController : MonoBehaviour
         // 登録を解除
         screenTransformGesture.StateChanged -= StateChangedHandle;
         screenTransformGesture.Cancelled -= CancelledHandle;
-        //transformGesture.StateChanged -= StateChangedHandle;
-        //transformGesture.Cancelled -= CancelledHandle;
     }
 
     /// <summary>
@@ -117,7 +115,6 @@ public class PlayerController : MonoBehaviour
         if (time >= pointerGetTime)
         {
             startPosition = screenTransformGesture.ScreenPosition;
-            //startPosition = transformGesture.ScreenPosition;
             time = 0.0f;
         }
 
@@ -135,7 +132,6 @@ public class PlayerController : MonoBehaviour
     void CancelledHandle(object sender, System.EventArgs e)
     {
         endPosition = screenTransformGesture.ScreenPosition;
-        //endPosition = transformGesture.ScreenPosition;
         SpeedCalculation();
         time = 0.0f;
     }
