@@ -11,9 +11,10 @@ public class TileGroupManager : MonoBehaviour
     // 一番最後尾の瓦グループオブジェクト
     [SerializeField] GameObject lastGroup = default;
     // ポジションリセット時の間隔
-    [SerializeField] float offset = 232.5f;
+    [SerializeField] RectTransform offSetRectTransform = default;
     // 生成されたときに最後尾のグループを保存する
     GameObject keepLastGroup = default;
+
 
     /// <summary>
     /// 初期化処理
@@ -44,7 +45,7 @@ public class TileGroupManager : MonoBehaviour
     void Reposition(GameObject hitObject)
     {
         Vector3 position = hitObject.transform.position;
-        position.y = lastGroup.transform.position.y - offset;
+        position.y = lastGroup.transform.position.y - offSetRectTransform.rect.height;
         hitObject.transform.position = position;
         lastGroup = hitObject.gameObject;
     }
