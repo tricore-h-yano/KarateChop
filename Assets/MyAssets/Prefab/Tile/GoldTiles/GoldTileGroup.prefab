@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b987af82670da469ef644b26bb4aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 50
+  maxSpeed: 60
   gameEndSpeed: 0
   playerHitChecker: {fileID: 0}
   playerController: {fileID: 0}

@@ -96,7 +96,7 @@ MonoBehaviour:
   - {fileID: 2106474307268829218}
   - {fileID: 2627313775696870009}
   lastGroup: {fileID: 5482168691905630219}
-  offset: 255
+  offSetRectTransform: {fileID: 2798446676974074099}
 --- !u!1001 &91851658855500338
 PrefabInstance:
   m_ObjectHideFlags: 0
