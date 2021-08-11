@@ -11,6 +11,7 @@ public class TransitionButtonController : MonoBehaviour
     [SerializeField] ScreenController screenController = default;
     [SerializeField] Button button = default;
     [SerializeField] ScreenState screenState = default;
+    [SerializeField] AudioSource audioSource = default;
 
     /// <summary>
     /// 初期化処理
@@ -18,6 +19,7 @@ public class TransitionButtonController : MonoBehaviour
     void Start()
     {
         button.onClick.AddListener(() => OnClickTransition());
+        button.onClick.AddListener(() => OnPlaySound());
     }
 
     /// <summary>
@@ -26,5 +28,13 @@ public class TransitionButtonController : MonoBehaviour
     void OnClickTransition()
     {
         screenController.StartTransitionScreen(screenState);
+    }
+
+    /// <summary>
+    /// ボタンが押されたときに音を鳴らす処理
+    /// </summary>
+    void OnPlaySound()
+    {
+        audioSource.Play();
     }
 }
