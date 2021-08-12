@@ -44,16 +44,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakTileCounter: {fileID: 0}
-  gameToResultScreenChanger: {fileID: 0}
+  screenController: {fileID: 0}
   tileTypeSelector: {fileID: 0}
-  nowScoreTextMesh: {fileID: 0}
-  totalScoreTextMesh: {fileID: 0}
-  rankTextMesh: {fileID: 0}
-  normalHighScoreTextMesh: {fileID: 0}
-  goldHighScoreTextMesh: {fileID: 0}
-  firstScoreRankThreshold: 50
-  secondScoreRankThreshold: 400
-  thirdScoreRankThreshold: 700
+  nowScoreText: {fileID: 0}
+  totalScoreText: {fileID: 0}
+  rankText: {fileID: 0}
+  normalHighScoreText: {fileID: 0}
+  goldHighScoreText: {fileID: 0}
+  firstScoreRankThreshold: 300
+  secondScoreRankThreshold: 700
+  thirdScoreRankThreshold: 1000
   firstTotalScoreRankThreshold: 500
   secondTotalScoreRankThreshold: 3000
   thirdTotalScoreRankThreshold: 10000
