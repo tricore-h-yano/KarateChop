@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] RectTransform movingLimitPoint = default;
     [SerializeField] RectTransform myRectTransform = default;
 
+    // スピードの補正値
+    [SerializeField] float correctionMoveSpeed = 10.0f;
+
     // ドラッグ開始位置
     Vector2 startPosition;
     // ドラッグ終了位置
@@ -155,7 +158,7 @@ public class PlayerController : MonoBehaviour
     {
         float swipeLength = endPosition.y - startPosition.y;
         speed = Mathf.Abs(swipeLength);
-        speed *= 10.0f;
+        speed *= correctionMoveSpeed;
 
         if(speed <= 1.0f)
         {

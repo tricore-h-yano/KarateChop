@@ -11,6 +11,9 @@ public class AutoMoverBase : MonoBehaviour
     [SerializeField] float maxSpeed = 50.0f;
     // ゲームを終了するスピードの指標
     [SerializeField] float gameEndSpeed = 0.05f;
+    // 減速度
+    [SerializeField] float decelerationValue = 0.99f;
+
     [SerializeField] PlayerHitChecker playerHitChecker = default;
     [SerializeField] PlayerController playerController = default;
     [SerializeField] RectTransform myRectTransform = default;
@@ -69,7 +72,7 @@ public class AutoMoverBase : MonoBehaviour
                 moveSpeed = receivedMoveSpeed;
             }
             transform.Translate(0, moveSpeed, 0);
-            receivedMoveSpeed *= 0.99f;
+            receivedMoveSpeed *= decelerationValue;
 
             // 現在の減速のさせ方だと速度が0.0f以下にならないため一定数値以下で停止とみなしています
             if (receivedMoveSpeed <= gameEndSpeed)

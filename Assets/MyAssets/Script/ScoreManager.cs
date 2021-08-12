@@ -80,7 +80,7 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            normalHighScoreText.text = null;
+            normalHighScoreText.text = "";
         }
 
         if (goldHighScore > 0)
@@ -89,7 +89,7 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            goldHighScoreText.text = null;
+            goldHighScoreText.text = "";
         }
     }
 
@@ -205,7 +205,7 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            normalHighScoreText.text = null;
+            normalHighScoreText.text = "";
         }
 
         if (goldHighScore > 0)
@@ -214,7 +214,7 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            goldHighScoreText.text = null;
+            goldHighScoreText.text = "";
         }
     }
 
