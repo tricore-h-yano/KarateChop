@@ -88,6 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 60
   gameEndSpeed: 0
+  decelerationValue: 0.99
   playerHitChecker: {fileID: 0}
   playerController: {fileID: 0}
   myRectTransform: {fileID: 5082204692389583086}
