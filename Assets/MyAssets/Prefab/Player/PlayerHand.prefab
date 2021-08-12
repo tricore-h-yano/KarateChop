@@ -163,7 +163,7 @@ MonoBehaviour:
   pointerGetTime: 30
   movingLimitPoint: {fileID: 0}
   myRectTransform: {fileID: 205103050633755766}
-  correctionMoveSpeed: 10
+  correctionMoveSpeed: 5
 --- !u!114 &8960559409808501727
 MonoBehaviour:
   m_ObjectHideFlags: 0

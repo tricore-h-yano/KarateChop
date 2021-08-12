@@ -7089,6 +7089,16 @@ PrefabInstance:
       propertyPath: screenController
       value: 
       objectReference: {fileID: 3236909572267825189}
+    - target: {fileID: 5998981515332096594, guid: 6a93edebbeca86d46817f4337f4e5e36,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998981515332096594, guid: 6a93edebbeca86d46817f4337f4e5e36,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6722075165373525834, guid: 6a93edebbeca86d46817f4337f4e5e36,
         type: 3}
       propertyPath: screenController
